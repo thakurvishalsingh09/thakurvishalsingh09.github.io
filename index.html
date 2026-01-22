@@ -5,21 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BarterStore — Barter • Donate • Sell • Buy</title>
 
-  <!-- Basic SEO -->
-  <meta name="description" content="BarterStore is a smart local marketplace to Barter, Donate, Sell, and Buy — fast, safe, and city-focused." />
-  <meta name="theme-color" content="#06152a" />
+  <!-- SEO -->
+  <meta name="description" content="BarterStore is India’s local marketplace to Barter, Donate, Sell, and Buy — fast, simple, city-focused." />
+  <meta name="theme-color" content="#ffffff" />
 
-  <!-- Open Graph (social preview) -->
+  <!-- Social preview -->
   <meta property="og:title" content="BarterStore — Barter • Donate • Sell • Buy" />
-  <meta property="og:description" content="A smart local marketplace to Barter, Donate, Sell, and Buy — fast, safe, and city-focused." />
+  <meta property="og:description" content="India’s local marketplace to Barter, Donate, Sell, and Buy — fast, simple, city-focused." />
   <meta property="og:image" content="https://barterstore.in/assets/icon.png" />
   <meta property="og:url" content="https://barterstore.in/" />
   <meta property="og:type" content="website" />
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="BarterStore — Barter • Donate • Sell • Buy" />
-  <meta name="twitter:description" content="A smart local marketplace to Barter, Donate, Sell, and Buy — fast, safe, and city-focused." />
+  <meta name="twitter:description" content="India’s local marketplace to Barter, Donate, Sell, and Buy — fast, simple, city-focused." />
   <meta name="twitter:image" content="https://barterstore.in/assets/icon.png" />
 
   <!-- Favicon -->
@@ -32,329 +31,537 @@
 
   <style>
     :root{
-      --bg:#050b16;
-      --card: rgba(255,255,255,0.06);
-      --card2: rgba(255,255,255,0.08);
-      --text:#eaf2ff;
-      --muted: rgba(234,242,255,0.72);
-      --line: rgba(255,255,255,0.10);
-      --accent:#18f0d7;
+      --bg:#ffffff;
+      --bg2:#f6f8fc;
+      --text:#0b1220;
+      --muted: rgba(11,18,32,0.70);
+      --line: rgba(11,18,32,0.10);
+      --card: rgba(255,255,255,0.92);
+      --shadow: 0 18px 60px rgba(15, 23, 42, 0.12);
+      --shadow2: 0 10px 30px rgba(15, 23, 42, 0.10);
+
+      --accent:#12e6cf;
       --accent2:#2a7bff;
-      --shadow: 0 20px 60px rgba(0,0,0,0.55);
+
       --radius: 18px;
+
+      --max: 1160px;
     }
+
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial; background:var(--bg); color:var(--text);}
+    html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial; background:var(--bg); color:var(--text);}
     a{color:inherit; text-decoration:none}
-    .wrap{max-width:1120px; margin:0 auto; padding:0 20px;}
+    img{max-width:100%; display:block}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px;}
+
+    /* Top nav */
     .nav{
-      position:sticky; top:0; z-index:30;
+      position:sticky; top:0; z-index:20;
+      background: rgba(255,255,255,0.82);
       backdrop-filter: blur(14px);
-      background: linear-gradient(to bottom, rgba(5,11,22,0.92), rgba(5,11,22,0.55));
-      border-bottom:1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
-    .nav-in{display:flex; align-items:center; justify-content:space-between; padding:14px 0;}
-    .brand{display:flex; gap:12px; align-items:center;}
-    .brand img{width:40px; height:40px; border-radius:12px; box-shadow: 0 10px 30px rgba(0,0,0,0.35);}
+    .nav-in{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{display:flex; align-items:center; gap:12px;}
+    .brand img{
+      width:42px;height:42px;border-radius:14px;
+      box-shadow: var(--shadow2);
+      border:1px solid var(--line);
+      background:#fff;
+    }
     .brand b{font-size:16px; letter-spacing:0.2px;}
-    .links{display:flex; gap:18px; align-items:center;}
-    .links a{color:var(--muted); font-weight:600; font-size:13px;}
-    .links a:hover{color:var(--text)}
+    .brand small{display:block; color:var(--muted); font-weight:600; margin-top:2px;}
+
+    .links{display:flex; gap:18px; align-items:center; flex-wrap:wrap;}
+    .links a{
+      color:var(--muted);
+      font-weight:700;
+      font-size:13px;
+      padding:8px 10px;
+      border-radius:12px;
+    }
+    .links a:hover{background: rgba(11,18,32,0.04); color:var(--text);}
+
     .cta{
       display:inline-flex; align-items:center; justify-content:center;
-      padding:10px 14px; border-radius:12px; font-weight:800; font-size:13px;
-      background: linear-gradient(135deg, var(--accent), #6bf7ff 45%, #7aa8ff 100%);
+      padding:10px 14px;
+      border-radius:14px;
+      font-weight:800;
+      font-size:13px;
       color:#041019;
-      box-shadow: 0 14px 40px rgba(24,240,215,0.18);
-      border:1px solid rgba(255,255,255,0.15);
+      background: linear-gradient(135deg, var(--accent), #6bf7ff 45%, #7aa8ff 100%);
+      box-shadow: 0 12px 28px rgba(42,123,255,0.18);
+      border:1px solid rgba(11,18,32,0.08);
+      white-space:nowrap;
     }
 
+    /* Hero */
     .hero{
       position:relative;
-      padding:64px 0 44px;
+      padding:56px 0 26px;
+      background:
+        radial-gradient(900px 420px at 20% 10%, rgba(18,230,207,0.20), transparent 60%),
+        radial-gradient(900px 420px at 80% 0%, rgba(42,123,255,0.14), transparent 60%),
+        linear-gradient(180deg, var(--bg2), var(--bg));
       overflow:hidden;
     }
-    .glow{
-      position:absolute; inset:-220px -200px auto auto;
-      width:520px; height:520px;
-      background: radial-gradient(circle at 30% 30%, rgba(24,240,215,0.30), rgba(42,123,255,0.10), transparent 60%);
-      filter: blur(2px);
-      transform: rotate(18deg);
-      pointer-events:none;
-    }
-    .glow2{
-      position:absolute; inset:auto auto -260px -220px;
-      width:560px; height:560px;
-      background: radial-gradient(circle at 40% 40%, rgba(42,123,255,0.28), rgba(24,240,215,0.08), transparent 60%);
-      filter: blur(2px);
-      pointer-events:none;
-    }
-
     .hero-grid{
       display:grid;
       grid-template-columns: 1.15fr 0.85fr;
-      gap:26px;
+      gap:22px;
       align-items:stretch;
     }
-    @media (max-width: 920px){
-      .hero-grid{grid-template-columns:1fr; gap:18px;}
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr; gap:16px;}
       .links{display:none;}
     }
 
-    .panel{
+    .card{
+      background: var(--card);
       border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
       border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
+
     .hero-left{padding:28px;}
-    .kicker{
+    .pill{
       display:inline-flex; align-items:center; gap:10px;
-      padding:8px 12px; border-radius:999px;
-      border:1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.04);
+      padding:8px 12px;
+      border-radius:999px;
+      background: rgba(255,255,255,0.70);
+      border:1px solid rgba(11,18,32,0.08);
       color:var(--muted);
-      font-weight:700; font-size:12px;
+      font-weight:800;
+      font-size:12px;
     }
-    .dot{width:9px; height:9px; border-radius:999px; background: var(--accent); box-shadow:0 0 0 6px rgba(24,240,215,0.10);}
-    h1{margin:14px 0 10px; font-size:42px; line-height:1.10; letter-spacing:-0.7px;}
+    .pill .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 6px rgba(18,230,207,0.14);
+    }
+
+    h1{
+      margin:14px 0 10px;
+      font-size:44px;
+      line-height:1.08;
+      letter-spacing:-0.8px;
+    }
     @media (max-width: 520px){ h1{font-size:34px;} }
-    .sub{margin:0; color:var(--muted); font-size:15px; line-height:1.6;}
-    .actions{display:flex; gap:12px; margin-top:18px; flex-wrap:wrap;}
-    .btn{
-      display:inline-flex; gap:10px; align-items:center; justify-content:center;
-      padding:12px 14px; border-radius:14px; font-weight:800; font-size:14px;
-      border:1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.04);
-      color:var(--text);
+
+    .sub{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.7;
     }
-    .btn:hover{background: rgba(255,255,255,0.06)}
+
+    .actions{
+      display:flex;
+      gap:12px;
+      margin-top:18px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 14px;
+      border-radius:14px;
+      font-weight:800;
+      font-size:14px;
+      border:1px solid rgba(11,18,32,0.10);
+      background: rgba(255,255,255,0.70);
+      color:var(--text);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+    }
+    .btn:hover{transform: translateY(-1px);}
     .btn.primary{
       background: linear-gradient(135deg, var(--accent), #6bf7ff 45%, #7aa8ff 100%);
       color:#041019;
-      border:1px solid rgba(255,255,255,0.15);
+      border:1px solid rgba(11,18,32,0.08);
     }
 
-    .bullets{display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top:18px;}
-    @media (max-width: 520px){ .bullets{grid-template-columns:1fr;} }
-    .chip{
-      display:flex; gap:10px; align-items:flex-start;
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.03);
+    .trust{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top:16px;
       color:var(--muted);
-      font-weight:600;
-      font-size:13px;
-      line-height:1.45;
+      font-weight:700;
+      font-size:12px;
     }
-    .chip span{
-      margin-top:2px;
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:9px 12px;
+      border-radius:999px;
+      border:1px solid rgba(11,18,32,0.08);
+      background: rgba(255,255,255,0.70);
+    }
+    .badge i{
       width:10px; height:10px; border-radius:999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow:0 0 0 6px rgba(42,123,255,0.10);
-      flex:0 0 auto;
+      background: rgba(42,123,255,0.25);
+      display:inline-block;
     }
 
     .hero-right{padding:22px; display:flex; flex-direction:column; gap:12px;}
-    .mock{
-      border-radius: 20px;
-      border:1px solid rgba(255,255,255,0.12);
-      background: radial-gradient(circle at 30% 20%, rgba(24,240,215,0.18), transparent 45%),
-                  radial-gradient(circle at 70% 60%, rgba(42,123,255,0.18), transparent 48%),
-                  rgba(0,0,0,0.22);
-      padding:16px;
-      flex:1;
+    .preview{
+      min-height:260px;
+      border-radius: 22px;
+      border:1px solid rgba(11,18,32,0.08);
+      background:
+        radial-gradient(500px 240px at 25% 20%, rgba(18,230,207,0.18), transparent 60%),
+        radial-gradient(500px 240px at 75% 70%, rgba(42,123,255,0.14), transparent 60%),
+        #ffffff;
+      box-shadow: var(--shadow);
       display:flex;
       align-items:center;
       justify-content:center;
-      min-height:240px;
       position:relative;
       overflow:hidden;
     }
-    .mock::after{
+    .preview::after{
       content:"";
-      position:absolute; inset:-60px;
-      background: linear-gradient(120deg, transparent 40%, rgba(255,255,255,0.10), transparent 60%);
+      position:absolute;
+      inset:-80px;
+      background: linear-gradient(120deg, transparent 38%, rgba(11,18,32,0.06), transparent 62%);
       transform: rotate(18deg);
       opacity:0.65;
     }
+
     .logo-big{
-      width:132px; height:132px; border-radius:28px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.55);
-      border:1px solid rgba(255,255,255,0.18);
-      background:#06152a;
-      position:relative;
+      width:140px; height:140px;
+      border-radius:30px;
+      border:1px solid rgba(11,18,32,0.10);
+      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.18);
+      background:#fff;
       z-index:2;
     }
     .mini{
-      display:grid; grid-template-columns: 1fr 1fr; gap:12px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
     }
-    .mini .card{
-      border:1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.03);
-      border-radius:16px;
-      padding:12px;
-    }
-    .mini .card b{display:block; font-size:13px; margin-bottom:6px;}
-    .mini .card p{margin:0; color:var(--muted); font-size:12px; line-height:1.45;}
+    @media (max-width: 520px){ .mini{grid-template-columns:1fr;} }
 
-    .section{padding:34px 0;}
-    .section h2{margin:0 0 10px; font-size:26px; letter-spacing:-0.4px;}
-    .section p{margin:0; color:var(--muted); line-height:1.7;}
-    .grid3{
-      display:grid; grid-template-columns: repeat(3, 1fr);
-      gap:14px; margin-top:14px;
+    .mini .mini-card{
+      border-radius: 18px;
+      border:1px solid rgba(11,18,32,0.08);
+      background: rgba(255,255,255,0.80);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      padding:14px;
     }
-    @media (max-width: 920px){ .grid3{grid-template-columns:1fr; } }
+    .mini .mini-card b{display:block; font-size:13px; margin-bottom:6px;}
+    .mini .mini-card p{margin:0; color:var(--muted); font-size:12.5px; line-height:1.55;}
+
+    /* Sections */
+    .section{padding:34px 0;}
+    .section h2{
+      margin:0 0 10px;
+      font-size:28px;
+      letter-spacing:-0.4px;
+    }
+    .section p{margin:0; color:var(--muted); line-height:1.75;}
+
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+      margin-top:14px;
+    }
+    @media (max-width: 980px){ .grid3{grid-template-columns:1fr;} }
+
     .feature{
-      padding:16px;
+      padding:18px;
       border-radius: var(--radius);
-      border:1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.03);
+      border:1px solid rgba(11,18,32,0.08);
+      background: rgba(255,255,255,0.82);
+      box-shadow: 0 12px 34px rgba(15, 23, 42, 0.06);
+    }
+    .feature .icon{
+      width:42px; height:42px;
+      border-radius:14px;
+      display:flex; align-items:center; justify-content:center;
+      background: linear-gradient(135deg, rgba(18,230,207,0.22), rgba(42,123,255,0.16));
+      border:1px solid rgba(11,18,32,0.06);
+      margin-bottom:10px;
+      font-weight:900;
     }
     .feature b{display:block; margin-bottom:8px;}
-    .feature span{color:var(--muted); font-size:13px; line-height:1.6; display:block;}
+    .feature span{display:block; color:var(--muted); font-size:13px; line-height:1.65;}
 
+    /* How it works */
+    .steps{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    @media (max-width: 980px){ .steps{grid-template-columns:1fr;} }
+
+    .step{
+      padding:18px;
+      border-radius: var(--radius);
+      border:1px solid rgba(11,18,32,0.08);
+      background: rgba(255,255,255,0.82);
+      box-shadow: 0 12px 34px rgba(15, 23, 42, 0.06);
+    }
+    .num{
+      width:34px; height:34px;
+      border-radius: 12px;
+      display:flex; align-items:center; justify-content:center;
+      font-weight:900;
+      color:#041019;
+      background: linear-gradient(135deg, var(--accent), #6bf7ff 45%, #7aa8ff 100%);
+      border:1px solid rgba(11,18,32,0.06);
+      margin-bottom:10px;
+    }
+    .step b{display:block; margin-bottom:6px;}
+    .step span{color:var(--muted); font-size:13px; line-height:1.65; display:block;}
+
+    /* FAQ */
+    .faq{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    @media (max-width: 980px){ .faq{grid-template-columns:1fr;} }
+
+    details{
+      border-radius: var(--radius);
+      border:1px solid rgba(11,18,32,0.08);
+      background: rgba(255,255,255,0.82);
+      box-shadow: 0 12px 34px rgba(15, 23, 42, 0.06);
+      padding:14px 16px;
+    }
+    summary{
+      cursor:pointer;
+      font-weight:800;
+      list-style:none;
+    }
+    summary::-webkit-details-marker{display:none;}
+    details p{
+      margin:10px 0 0;
+      color:var(--muted);
+      line-height:1.7;
+      font-size:13px;
+    }
+
+    /* Bottom CTA */
+    .cta-band{
+      padding:26px 0 44px;
+      background: linear-gradient(180deg, var(--bg), var(--bg2));
+    }
+    .cta-box{
+      padding:22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .cta-box h3{margin:0; font-size:20px; letter-spacing:-0.2px;}
+    .cta-box p{margin:6px 0 0; color:var(--muted); line-height:1.7; font-size:13px;}
+
+    /* Footer */
     .footer{
       border-top:1px solid var(--line);
       padding:22px 0;
       color:var(--muted);
       font-size:13px;
+      background:#fff;
     }
     .footer-in{
       display:flex; align-items:center; justify-content:space-between;
       gap:12px; flex-wrap:wrap;
     }
     .footlinks{display:flex; gap:14px; flex-wrap:wrap;}
-    .footlinks a{color:var(--muted); font-weight:700;}
-    .footlinks a:hover{color:var(--text)}
+    .footlinks a{color:var(--muted); font-weight:800;}
+    .footlinks a:hover{color:var(--text);}
   </style>
 </head>
 
 <body>
+  <!-- NAV -->
   <header class="nav">
     <div class="wrap nav-in">
       <div class="brand">
         <img src="/assets/icon.png" alt="BarterStore logo" />
         <div>
-          <b>BarterStore</b><br/>
-          <span style="color:var(--muted); font-size:12px; font-weight:600;">Local marketplace • India</span>
+          <b>BarterStore</b>
+          <small>India’s local marketplace • Barter • Donate • Sell • Buy</small>
         </div>
       </div>
 
       <nav class="links">
         <a href="#features">Features</a>
         <a href="#how">How it works</a>
+        <a href="#faq">FAQ</a>
         <a href="/privacy.html">Privacy</a>
         <a href="/terms.html">Terms</a>
       </nav>
 
-      <a class="cta" href="#download">Get the app</a>
+      <a class="cta" href="https://play.google.com/store/apps/details?id=com.barterstore.app" target="_blank" rel="noopener">
+        Install App
+      </a>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="glow"></div>
-      <div class="glow2"></div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="card hero-left">
+        <div class="pill"><span class="dot"></span> City-first marketplace • Clean • Fast</div>
+        <h1>Swap smart. Donate kindly. Buy & sell locally — in one app.</h1>
+        <p class="sub">
+          BarterStore helps you discover nearby deals, barter items, donate what you don’t need,
+          or sell unused things — with a modern, premium experience.
+        </p>
 
-      <div class="wrap hero-grid">
-        <div class="panel hero-left">
-          <div class="kicker"><span class="dot"></span> Barter • Donate • Sell • Buy — in your city</div>
-          <h1>Turn unused items into value — fast, simple, and local.</h1>
-          <p class="sub">
-            BarterStore helps you discover nearby deals, swap items, donate to others, or sell what you don’t need —
-            with city-first browsing and a clean modern experience.
-          </p>
-
-          <div class="actions" id="download">
-            <!-- Replace # with your Play Store link once your app is public -->
-            <a class="btn primary" href="#" target="_blank" rel="noopener">📲 Download on Google Play</a>
-            <a class="btn" href="/privacy.html">🔒 Privacy Policy</a>
-            <a class="btn" href="/terms.html">📄 Terms</a>
-          </div>
-
-          <div class="bullets">
-            <div class="chip"><span></span> City-based browsing for faster discovery and relevance.</div>
-            <div class="chip"><span></span> Barter + Donate flows — not just buy/sell.</div>
-            <div class="chip"><span></span> Clean UI built for trust and easy posting.</div>
-            <div class="chip"><span></span> Support email: <b style="color:var(--text); font-weight:800;">support@barterstore.in</b></div>
-          </div>
+        <div class="actions" id="download">
+          <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.barterstore.app" target="_blank" rel="noopener">
+            📲 Install from Google Play
+          </a>
+          <a class="btn" href="/privacy.html">🔒 Privacy Policy</a>
+          <a class="btn" href="/terms.html">📄 Terms</a>
         </div>
 
-        <div class="panel hero-right">
-          <div class="mock" aria-label="App preview">
-            <img class="logo-big" src="/assets/icon.png" alt="BarterStore app icon" />
-          </div>
+        <div class="trust">
+          <span class="badge"><i></i> Secure & trusted flow</span>
+          <span class="badge"><i></i> City-wise browsing</span>
+          <span class="badge"><i></i> Support: <b style="color:var(--text);">support@barterstore.in</b></span>
+        </div>
+      </div>
 
-          <div class="mini">
-            <div class="card">
-              <b>Fast posting</b>
-              <p>Add photos, choose category, set city/area, and publish quickly.</p>
-            </div>
-            <div class="card">
-              <b>Smart discovery</b>
-              <p>See newly added items first and browse by locality.</p>
-            </div>
+      <div class="card hero-right">
+        <div class="preview" aria-label="BarterStore preview">
+          <img class="logo-big" src="/assets/icon.png" alt="BarterStore app icon" />
+        </div>
+
+        <div class="mini">
+          <div class="mini-card">
+            <b>Fast posting</b>
+            <p>Add photos, choose category, set city/area, and publish quickly.</p>
+          </div>
+          <div class="mini-card">
+            <b>Smart discovery</b>
+            <p>Browse “Newly Added” items first and find nearby deals easily.</p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section" id="features">
-      <div class="wrap">
-        <h2>Why people will love BarterStore</h2>
-        <p>Built to feel modern, safe, and city-first — designed for India.</p>
+  <!-- FEATURES -->
+  <section class="section" id="features">
+    <div class="wrap">
+      <h2>Premium features people will love</h2>
+      <p>Designed for trust, simplicity, and local relevance — built for India.</p>
 
-        <div class="grid3">
-          <div class="feature">
-            <b>Barter + Donate + Sell + Buy</b>
-            <span>Multiple ways to exchange items — not limited to one model.</span>
-          </div>
-          <div class="feature">
-            <b>Location focused</b>
-            <span>Browse city-wise to keep results relevant and useful.</span>
-          </div>
-          <div class="feature">
-            <b>Trust & clarity</b>
-            <span>Simple UI, clear actions, and dedicated support contact.</span>
-          </div>
+      <div class="grid3">
+        <div class="feature">
+          <div class="icon">↺</div>
+          <b>Barter + Donate + Sell + Buy</b>
+          <span>Multiple ways to exchange items — not limited to only buy/sell.</span>
+        </div>
+
+        <div class="feature">
+          <div class="icon">📍</div>
+          <b>Location focused</b>
+          <span>City-based discovery so results stay relevant and useful.</span>
+        </div>
+
+        <div class="feature">
+          <div class="icon">🛡️</div>
+          <b>Trust & clarity</b>
+          <span>Clean UI, clear actions, and a dedicated support channel.</span>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section" id="how">
-      <div class="wrap">
-        <h2>How it works</h2>
-        <div class="grid3">
-          <div class="feature">
-            <b>1) Browse</b>
-            <span>Explore items in your city, filter by category, and find what you need.</span>
-          </div>
-          <div class="feature">
-            <b>2) Post</b>
-            <span>Upload photos, set item details, and publish — quick and easy.</span>
-          </div>
-          <div class="feature">
-            <b>3) Deal</b>
-            <span>Barter, donate, or buy/sell — choose what fits best for both sides.</span>
-          </div>
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <p>Three simple steps to find value from unused items.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <b>Browse locally</b>
+          <span>Explore items in your city, filter categories, and discover deals.</span>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <b>Create a post</b>
+          <span>Upload photos, add details, select city/area and publish quickly.</span>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <b>Make the deal</b>
+          <span>Barter, donate, or buy/sell — choose what fits best for both sides.</span>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <footer class="footer">
-      <div class="wrap footer-in">
-        <div>© <span id="y"></span> BarterStore • All rights reserved.</div>
-        <div class="footlinks">
-          <a href="/privacy.html">Privacy Policy</a>
-          <a href="/terms.html">Terms</a>
-          <a href="/app-ads.txt">app-ads.txt</a>
-        </div>
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <h2>FAQ</h2>
+      <p>Quick answers for users and reviewers.</p>
+
+      <div class="faq">
+        <details>
+          <summary>Is BarterStore free to use?</summary>
+          <p>Users can browse and explore listings. Some premium actions may require login or subscriptions, depending on your app settings.</p>
+        </details>
+
+        <details>
+          <summary>How do I contact support?</summary>
+          <p>Email us at <b>support@barterstore.in</b>. We respond as soon as possible.</p>
+        </details>
+
+        <details>
+          <summary>Where can I read the Privacy Policy?</summary>
+          <p>Open the Privacy Policy page from the top menu or click the Privacy button above.</p>
+        </details>
+
+        <details>
+          <summary>How do I install the app?</summary>
+          <p>Use the Install button — it opens Google Play: <b>com.barterstore.app</b>.</p>
+        </details>
       </div>
-    </footer>
-  </main>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <section class="cta-band">
+    <div class="wrap">
+      <div class="card cta-box">
+        <div>
+          <h3>Ready to try BarterStore?</h3>
+          <p>Install now and start exchanging items in your city — fast and simple.</p>
+        </div>
+        <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.barterstore.app" target="_blank" rel="noopener">
+          📲 Install from Google Play
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap footer-in">
+      <div>© <span id="y"></span> BarterStore • All rights reserved.</div>
+      <div class="footlinks">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/app-ads.txt">app-ads.txt</a>
+      </div>
+    </div>
+  </footer>
 
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
