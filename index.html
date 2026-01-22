@@ -26,20 +26,15 @@
       --radius: 18px;
       --radius-lg: 24px;
 
-      /* Premium, slightly colorful */
       --accent: #0ea5e9;
       --accent-2: #2563eb;
       --accent-3: #22c55e;
 
       --max: 1120px;
-      --headerH: 74px;
     }
 
     *{ box-sizing: border-box; }
-    html{
-      scroll-behavior: smooth;
-      scroll-padding-top: calc(var(--headerH) + 18px);
-    }
+    html{ scroll-behavior: smooth; }
     body{
       margin:0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -57,57 +52,51 @@
       padding: 0 18px;
     }
 
-    section{ padding: 66px 0; scroll-margin-top: calc(var(--headerH) + 18px); }
-    .section-muted{
-      background: var(--surface-2);
-      border-top: 1px solid rgba(229,231,235,.65);
-      border-bottom: 1px solid rgba(229,231,235,.65);
-    }
-
-    /* Header */
+    /* Header (premium, tinted, no overlap) */
     .header{
       position: sticky;
       top: 0;
       z-index: 50;
-      height: var(--headerH);
-      display:flex;
-      align-items:center;
-      background: rgba(255,255,255,.84);
+      background: linear-gradient(90deg, rgba(14,165,233,.10), rgba(37,99,235,.06), rgba(34,197,94,.06));
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(229,231,235,.85);
+      border-bottom: 1px solid rgba(229,231,235,.9);
     }
     .header-inner{
       display:flex;
       align-items:center;
       justify-content: space-between;
       gap: 14px;
-      width: 100%;
+      padding: 12px 0;
+      flex-wrap: nowrap;
     }
 
     .brand{
       display:flex;
       align-items:center;
-      gap: 10px;
-      min-width: 190px;
+      gap: 12px;
+      min-width: 230px;
     }
     .brand img{
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
+      width: 58px;           /* ✅ bigger logo */
+      height: 58px;          /* ✅ bigger logo */
+      border-radius: 14px;
       object-fit: contain;
       background: #fff;
-      border: 1px solid rgba(229,231,235,.9);
-      box-shadow: 0 10px 20px rgba(15,23,42,.10);
+      border: 1px solid rgba(229,231,235,.92);
+      box-shadow: 0 10px 22px rgba(15,23,42,.12);
+      padding: 6px;
     }
     .brand-name{
       font-weight: 900;
       letter-spacing: .2px;
-      line-height: 1.1;
+      line-height: 1.05;
+      font-size: 18px;
     }
     .brand-tag{
-      font-size: 12px;
+      font-size: 12.5px;
       color: var(--muted-2);
-      margin-top: 2px;
+      margin-top: 4px;
+      font-weight: 600;
     }
 
     nav{
@@ -115,23 +104,23 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      gap: 10px;
-      white-space: nowrap;
-      overflow-x: auto;
-      scrollbar-width: none;
+      gap: 6px;              /* ✅ tighter to avoid hiding */
+      flex-wrap: wrap;       /* ✅ prevents “res” clipping issue */
+      padding: 4px 0;
     }
-    nav::-webkit-scrollbar{ display:none; }
     nav a{
       font-size: 13px;
       color: var(--muted);
       padding: 8px 10px;
       border-radius: 10px;
       border: 1px solid transparent;
+      font-weight: 700;
     }
     nav a:hover{
-      background: #f1f5f9;
+      background: rgba(255,255,255,.7);
       color: var(--text);
-      border-color: rgba(229,231,235,.9);
+      border-color: rgba(229,231,235,.95);
+      box-shadow: 0 8px 18px rgba(15,23,42,.08);
     }
 
     .header-cta{
@@ -139,7 +128,7 @@
       gap: 10px;
       align-items:center;
       justify-content: flex-end;
-      min-width: 330px;
+      min-width: 200px;
     }
 
     .btn{
@@ -147,18 +136,18 @@
       align-items:center;
       justify-content:center;
       gap: 10px;
-      padding: 11px 14px;
+      padding: 12px 16px;
       border-radius: 14px;
       border: 1px solid var(--border);
-      background: var(--surface);
+      background: rgba(255,255,255,.86);
       color: var(--text);
-      font-weight: 800;
+      font-weight: 900;
       font-size: 13px;
       transition: transform .06s ease, box-shadow .2s ease, background .2s ease;
       cursor: pointer;
       white-space: nowrap;
     }
-    .btn:hover{ background: #fbfcff; box-shadow: var(--shadow-soft); }
+    .btn:hover{ background: #ffffff; box-shadow: var(--shadow-soft); }
     .btn:active{ transform: translateY(1px); }
 
     .btn-primary{
@@ -172,13 +161,21 @@
     }
 
     .btn-icon{
-      width: 18px;
-      height: 18px;
-      border-radius: 6px;
+      width: 22px;           /* ✅ bigger icon */
+      height: 22px;          /* ✅ bigger icon */
+      border-radius: 7px;
       object-fit: contain;
       background: rgba(255,255,255,.92);
-      padding: 2px;
-      box-shadow: 0 8px 16px rgba(15,23,42,.12);
+      padding: 3px;
+      box-shadow: 0 10px 18px rgba(15,23,42,.16);
+    }
+
+    /* Sections */
+    section{ padding: 66px 0; }
+    .section-muted{
+      background: var(--surface-2);
+      border-top: 1px solid rgba(229,231,235,.65);
+      border-bottom: 1px solid rgba(229,231,235,.65);
     }
 
     .kicker{
@@ -223,34 +220,15 @@
       border-radius: var(--radius-lg);
       overflow:hidden;
       box-shadow: var(--shadow);
-      border: 1px solid rgba(229,231,235,.9);
+      border: 1px solid rgba(229,231,235,.92);
       background: #fff;
     }
 
+    /* HERO (clean background — removed horizontal color strip) */
     .hero{
-      padding-top: 46px;
-      position: relative;
-      overflow: hidden;
+      padding-top: 44px;
+      background: #ffffff; /* ✅ clean */
     }
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset: -120px -180px auto auto;
-      width: 560px;
-      height: 560px;
-      background: radial-gradient(circle at 30% 30%, rgba(14,165,233,.22), rgba(37,99,235,.10), transparent 65%);
-      pointer-events:none;
-    }
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset: auto auto -140px -160px;
-      width: 560px;
-      height: 560px;
-      background: radial-gradient(circle at 30% 30%, rgba(34,197,94,.18), rgba(14,165,233,.08), transparent 70%);
-      pointer-events:none;
-    }
-
     .actions{
       display:flex;
       gap: 12px;
@@ -274,9 +252,16 @@
       border: 1px solid rgba(14,165,233,.18);
       color: #0b4b63;
       font-size: 13px;
-      font-weight: 800;
+      font-weight: 900;
     }
 
+    .mini-note{
+      font-size: 12px;
+      color: var(--muted-2);
+      margin-top: 10px;
+    }
+
+    /* Cards */
     .three{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -312,6 +297,7 @@
       color: #166534;
     }
 
+    /* Steps */
     .steps{
       display:grid;
       grid-template-columns: repeat(4, 1fr);
@@ -339,6 +325,7 @@
       box-shadow: 0 10px 18px rgba(37,99,235,.20);
     }
 
+    /* Categories */
     .categories{
       display:grid;
       grid-template-columns: repeat(4, 1fr);
@@ -351,14 +338,13 @@
       border: 1px solid rgba(229,231,235,.95);
       background: #fff;
       color: var(--muted);
-      font-weight: 800;
+      font-weight: 900;
       text-align:center;
       box-shadow: 0 10px 18px rgba(15,23,42,.05);
     }
 
-    .cta{
-      text-align:center;
-    }
+    /* CTA */
+    .cta{ text-align:center; }
     .cta-box{
       max-width: 920px;
       margin: 0 auto;
@@ -370,9 +356,9 @@
       outline: 6px solid rgba(14,165,233,.06);
     }
     .cta-icon{
-      width: 64px;
-      height: 64px;
-      border-radius: 16px;
+      width: 70px;
+      height: 70px;
+      border-radius: 18px;
       margin: 0 auto 14px;
       border: 1px solid rgba(229,231,235,.95);
       box-shadow: var(--shadow-soft);
@@ -380,12 +366,8 @@
       object-fit: contain;
       padding: 8px;
     }
-    .mini-note{
-      font-size: 12px;
-      color: var(--muted-2);
-      margin-top: 10px;
-    }
 
+    /* Footer */
     footer{
       padding: 28px 0;
       border-top: 1px solid rgba(229,231,235,.95);
@@ -411,15 +393,16 @@
       text-underline-offset: 3px;
     }
 
+    /* Responsive */
     @media (max-width: 980px){
-      nav{ display:none; }
-      .header-cta{ min-width: auto; }
+      nav{ display:none; } /* clean on smaller screens */
       .grid, .grid.reverse{ grid-template-columns: 1fr; }
       .three{ grid-template-columns: 1fr; }
       .steps{ grid-template-columns: 1fr 1fr; }
       .categories{ grid-template-columns: 1fr 1fr; }
       section{ padding: 54px 0; }
       .hero{ padding-top: 28px; }
+      .brand{ min-width: auto; }
     }
     @media (max-width: 560px){
       .steps{ grid-template-columns: 1fr; }
@@ -427,6 +410,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- HEADER -->
@@ -444,7 +428,7 @@
         <nav aria-label="Primary">
           <a href="#exchange">Exchange</a>
           <a href="#features">Features</a>
-          <a href="#impact">Donate</a>
+          <a href="#donate">Donate</a>
           <a href="#buySell">Buy & Sell</a>
           <a href="#sustainability">Sustainability</a>
           <a href="#how">How it works</a>
@@ -453,8 +437,6 @@
         </nav>
 
         <div class="header-cta">
-          <a class="btn" href="terms.html">Terms</a>
-          <a class="btn" href="privacy.html">Privacy</a>
           <a class="btn btn-primary"
              href="https://play.google.com/store/apps/details?id=com.barterstore.app"
              target="_blank" rel="noopener">
@@ -466,8 +448,10 @@
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- MAIN -->
   <main id="top">
+
+    <!-- HERO -->
     <section class="hero">
       <div class="container">
         <div class="grid">
@@ -508,7 +492,7 @@
       </div>
     </section>
 
-    <!-- MODERN EXCHANGE -->
+    <!-- EXCHANGE -->
     <section id="exchange" class="section-muted">
       <div class="container">
         <div class="grid">
@@ -517,8 +501,8 @@
             <h2>Barter, Reimagined as Smart “Exchange”</h2>
             <p>
               Modern barter isn’t complicated — it’s simply <strong>exchange</strong>.
-              Swap an item, trade for something useful, mix options (barter + cash if needed),
-              or choose donate / buy / sell depending on what’s best for you.
+              Swap an item, trade for something useful, mix options (exchange + cash if needed),
+              or choose donate / buy / sell depending on what works best.
             </p>
             <p>
               BarterStore makes it easy to discover nearby items, communicate clearly, and complete an exchange in a practical way.
@@ -538,19 +522,19 @@
         <div class="kicker">WHY BARTERSTORE</div>
         <h2>Built for Real-Life Needs</h2>
         <p>
-          Everything is designed to help you exchange items faster, reduce waste, and find value in what you already own.
+          Designed to help you exchange items faster, reduce waste, and find value in what you already own.
         </p>
 
         <div class="three">
           <div class="mini-card">
             <div class="badge">Local First</div>
             <h3>City-based discovery</h3>
-            <p>See items relevant to your city so your search stays practical and nearby.</p>
+            <p>Find items relevant to your city so everything stays practical and nearby.</p>
           </div>
           <div class="mini-card">
             <div class="badge">Flexible</div>
             <h3>Exchange your way</h3>
-            <p>Barter, donate, buy, or sell — choose what fits your situation best.</p>
+            <p>Exchange, donate, buy, or sell — choose what fits your situation best.</p>
           </div>
           <div class="mini-card">
             <div class="badge green">Eco Impact</div>
@@ -562,7 +546,7 @@
     </section>
 
     <!-- DONATE -->
-    <section id="impact" class="section-muted">
+    <section id="donate" class="section-muted">
       <div class="container">
         <div class="grid reverse">
           <div class="media">
@@ -572,11 +556,8 @@
             <div class="kicker">DONATE</div>
             <h2>Donate with Respect. Help Locally.</h2>
             <p>
-              Donating usable items can be life-changing for someone else.
-              It also keeps good items out of landfills and builds a stronger community.
-            </p>
-            <p>
-              BarterStore makes donating simple, local, and meaningful — without making it feel like a “charity campaign”.
+              Donating usable items can be life-changing for someone else — and it keeps good items out of landfills.
+              BarterStore makes donating simple, local, and meaningful.
             </p>
           </div>
         </div>
@@ -595,7 +576,7 @@
               Buying used saves money — selling helps you declutter and recover value.
             </p>
             <p>
-              BarterStore encourages practical listings so buyers and sellers can decide confidently.
+              BarterStore supports practical listings so buyers and sellers can decide confidently.
             </p>
           </div>
           <div class="media">
@@ -618,9 +599,6 @@
             <p>
               Every reused item reduces waste and supports a circular economy.
               BarterStore helps communities treat items as value — not garbage.
-            </p>
-            <p>
-              Small actions, repeated across cities, create meaningful change.
             </p>
           </div>
         </div>
@@ -659,28 +637,8 @@
       </div>
     </section>
 
-    <!-- CATEGORIES -->
-    <section id="categories" class="section-muted">
-      <div class="container">
-        <div class="kicker">CATEGORIES</div>
-        <h2>Everyday Items, Real Opportunities</h2>
-        <p>Popular categories people exchange every day.</p>
-
-        <div class="categories">
-          <div class="cat">Books</div>
-          <div class="cat">Electronics</div>
-          <div class="cat">Furniture</div>
-          <div class="cat">Vehicles</div>
-          <div class="cat">Sports</div>
-          <div class="cat">Toys</div>
-          <div class="cat">Appliances</div>
-          <div class="cat">More</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- BARTERBOT (image LEFT) -->
-    <section id="assistant">
+    <!-- BARTERBOT -->
+    <section id="assistant" class="section-muted">
       <div class="container">
         <div class="grid reverse">
           <div class="media">
@@ -692,22 +650,19 @@
             <p>
               BarterBot helps you explore BarterStore smoothly — so you can discover features faster and use the app confidently.
             </p>
-            <p>
-              Helpful, friendly, and designed to assist — without getting in the way.
-            </p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- TRUST -->
-    <section id="trust" class="section-muted">
+    <section id="trust">
       <div class="container">
         <div class="kicker">TRUST</div>
         <h2>Safety, Respect, and Community</h2>
         <p>
           BarterStore promotes respectful interactions and practical listings.
-          Users can report concerns and keep the community clean and trustworthy.
+          Users can report concerns and keep the marketplace clean and trustworthy.
         </p>
       </div>
     </section>
@@ -732,6 +687,7 @@
         </div>
       </div>
     </section>
+
   </main>
 
   <!-- FOOTER -->
@@ -752,5 +708,6 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
