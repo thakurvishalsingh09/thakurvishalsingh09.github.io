@@ -31,10 +31,19 @@
       --accent-3: #22c55e;
 
       --max: 1120px;
+
+      /* ✅ Sticky header offset for anchor jumps */
+      --header-offset: 96px;
     }
 
     *{ box-sizing: border-box; }
-    html{ scroll-behavior: smooth; }
+
+    html{
+      scroll-behavior: smooth;
+      /* ✅ ensures browser scrolls anchors with padding */
+      scroll-padding-top: var(--header-offset);
+    }
+
     body{
       margin:0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -45,6 +54,7 @@
 
     a{ color: inherit; text-decoration: none; }
     img{ max-width: 100%; display:block; }
+
     .container{
       width: 100%;
       max-width: var(--max);
@@ -52,7 +62,10 @@
       padding: 0 18px;
     }
 
-    /* Header (premium, tinted, no overlap) */
+    /* ✅ Apply scroll margin to every section so headings never get cut */
+    section{ scroll-margin-top: var(--header-offset); }
+
+    /* Header */
     .header{
       position: sticky;
       top: 0;
@@ -77,8 +90,8 @@
       min-width: 230px;
     }
     .brand img{
-      width: 58px;           /* ✅ bigger logo */
-      height: 58px;          /* ✅ bigger logo */
+      width: 58px;
+      height: 58px;
       border-radius: 14px;
       object-fit: contain;
       background: #fff;
@@ -104,8 +117,8 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      gap: 6px;              /* ✅ tighter to avoid hiding */
-      flex-wrap: wrap;       /* ✅ prevents “res” clipping issue */
+      gap: 6px;
+      flex-wrap: wrap;
       padding: 4px 0;
     }
     nav a{
@@ -156,17 +169,16 @@
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
       box-shadow: 0 14px 28px rgba(37, 99, 235, .22);
     }
-    .btn-primary:hover{
-      box-shadow: 0 18px 34px rgba(37, 99, 235, .26);
-    }
+    .btn-primary:hover{ box-shadow: 0 18px 34px rgba(37, 99, 235, .26); }
 
+    /* ✅ Bigger Play Store icon */
     .btn-icon{
-      width: 22px;           /* ✅ bigger icon */
-      height: 22px;          /* ✅ bigger icon */
-      border-radius: 7px;
+      width: 28px;
+      height: 28px;
+      border-radius: 9px;
       object-fit: contain;
       background: rgba(255,255,255,.92);
-      padding: 3px;
+      padding: 4px;
       box-shadow: 0 10px 18px rgba(15,23,42,.16);
     }
 
@@ -224,10 +236,9 @@
       background: #fff;
     }
 
-    /* HERO (clean background — removed horizontal color strip) */
     .hero{
       padding-top: 44px;
-      background: #ffffff; /* ✅ clean */
+      background: #ffffff;
     }
     .actions{
       display:flex;
@@ -261,7 +272,6 @@
       margin-top: 10px;
     }
 
-    /* Cards */
     .three{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -297,7 +307,6 @@
       color: #166534;
     }
 
-    /* Steps */
     .steps{
       display:grid;
       grid-template-columns: repeat(4, 1fr);
@@ -325,25 +334,6 @@
       box-shadow: 0 10px 18px rgba(37,99,235,.20);
     }
 
-    /* Categories */
-    .categories{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-top: 18px;
-    }
-    .cat{
-      padding: 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(229,231,235,.95);
-      background: #fff;
-      color: var(--muted);
-      font-weight: 900;
-      text-align:center;
-      box-shadow: 0 10px 18px rgba(15,23,42,.05);
-    }
-
-    /* CTA */
     .cta{ text-align:center; }
     .cta-box{
       max-width: 920px;
@@ -367,7 +357,6 @@
       padding: 8px;
     }
 
-    /* Footer */
     footer{
       padding: 28px 0;
       border-top: 1px solid rgba(229,231,235,.95);
@@ -393,27 +382,25 @@
       text-underline-offset: 3px;
     }
 
-    /* Responsive */
     @media (max-width: 980px){
-      nav{ display:none; } /* clean on smaller screens */
+      nav{ display:none; }
       .grid, .grid.reverse{ grid-template-columns: 1fr; }
       .three{ grid-template-columns: 1fr; }
       .steps{ grid-template-columns: 1fr 1fr; }
-      .categories{ grid-template-columns: 1fr 1fr; }
       section{ padding: 54px 0; }
       .hero{ padding-top: 28px; }
       .brand{ min-width: auto; }
+      :root{ --header-offset: 88px; }
     }
     @media (max-width: 560px){
       .steps{ grid-template-columns: 1fr; }
-      .categories{ grid-template-columns: 1fr; }
+      :root{ --header-offset: 84px; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
   <header class="header">
     <div class="container">
       <div class="header-inner">
@@ -425,12 +412,13 @@
           </div>
         </a>
 
+        <!-- ✅ New order: Exchange → Sustainability → Features → Donate → Buy & Sell ... -->
         <nav aria-label="Primary">
           <a href="#exchange">Exchange</a>
+          <a href="#sustainability">Sustainability</a>
           <a href="#features">Features</a>
           <a href="#donate">Donate</a>
           <a href="#buySell">Buy & Sell</a>
-          <a href="#sustainability">Sustainability</a>
           <a href="#how">How it works</a>
           <a href="#assistant">BarterBot</a>
           <a href="#trust">Trust</a>
@@ -448,10 +436,8 @@
     </div>
   </header>
 
-  <!-- MAIN -->
   <main id="top">
 
-    <!-- HERO -->
     <section class="hero">
       <div class="container">
         <div class="grid">
@@ -492,7 +478,6 @@
       </div>
     </section>
 
-    <!-- EXCHANGE -->
     <section id="exchange" class="section-muted">
       <div class="container">
         <div class="grid">
@@ -505,7 +490,8 @@
               or choose donate / buy / sell depending on what works best.
             </p>
             <p>
-              BarterStore makes it easy to discover nearby items, communicate clearly, and complete an exchange in a practical way.
+              BarterStore makes it easy to discover nearby items, communicate clearly,
+              and complete an exchange in a practical way.
             </p>
           </div>
 
@@ -516,14 +502,29 @@
       </div>
     </section>
 
-    <!-- FEATURES -->
-    <section id="features">
+    <section id="sustainability">
+      <div class="container">
+        <div class="grid reverse">
+          <div class="media">
+            <img src="assets/sustainability.png" alt="Sustainability — reuse, reduce waste, circular economy">
+          </div>
+          <div>
+            <div class="kicker">SUSTAINABILITY</div>
+            <h2>Reuse More. Waste Less.</h2>
+            <p>
+              Every reused item reduces waste and supports a circular economy.
+              BarterStore helps communities treat items as value — not garbage.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section-muted">
       <div class="container">
         <div class="kicker">WHY BARTERSTORE</div>
         <h2>Built for Real-Life Needs</h2>
-        <p>
-          Designed to help you exchange items faster, reduce waste, and find value in what you already own.
-        </p>
+        <p>Designed to help you exchange items faster, reduce waste, and find value in what you already own.</p>
 
         <div class="three">
           <div class="mini-card">
@@ -545,8 +546,7 @@
       </div>
     </section>
 
-    <!-- DONATE -->
-    <section id="donate" class="section-muted">
+    <section id="donate">
       <div class="container">
         <div class="grid reverse">
           <div class="media">
@@ -564,20 +564,17 @@
       </div>
     </section>
 
-    <!-- BUY & SELL -->
-    <section id="buySell">
+    <section id="buySell" class="section-muted">
       <div class="container">
         <div class="grid">
           <div>
             <div class="kicker">BUY & SELL</div>
             <h2>Used Items. Clean Value.</h2>
             <p>
-              A well-maintained used item can be a smart purchase.
-              Buying used saves money — selling helps you declutter and recover value.
+              A well-maintained used item can be a smart purchase. Buying used saves money —
+              selling helps you declutter and recover value.
             </p>
-            <p>
-              BarterStore supports practical listings so buyers and sellers can decide confidently.
-            </p>
+            <p>BarterStore supports practical listings so buyers and sellers can decide confidently.</p>
           </div>
           <div class="media">
             <img src="assets/buy_sell.png" alt="Buy & Sell — clean and well-maintained used items">
@@ -586,26 +583,6 @@
       </div>
     </section>
 
-    <!-- SUSTAINABILITY -->
-    <section id="sustainability" class="section-muted">
-      <div class="container">
-        <div class="grid reverse">
-          <div class="media">
-            <img src="assets/sustainability.png" alt="Sustainability — reuse, reduce waste, circular economy">
-          </div>
-          <div>
-            <div class="kicker">SUSTAINABILITY</div>
-            <h2>Reuse More. Waste Less.</h2>
-            <p>
-              Every reused item reduces waste and supports a circular economy.
-              BarterStore helps communities treat items as value — not garbage.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- HOW IT WORKS -->
     <section id="how">
       <div class="container">
         <div class="kicker">HOW IT WORKS</div>
@@ -637,7 +614,6 @@
       </div>
     </section>
 
-    <!-- BARTERBOT -->
     <section id="assistant" class="section-muted">
       <div class="container">
         <div class="grid reverse">
@@ -647,15 +623,12 @@
           <div>
             <div class="kicker">BARTERBOT</div>
             <h2>Your Friendly Guide Inside the App</h2>
-            <p>
-              BarterBot helps you explore BarterStore smoothly — so you can discover features faster and use the app confidently.
-            </p>
+            <p>BarterBot helps you explore BarterStore smoothly — so you can discover features faster and use the app confidently.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- TRUST -->
     <section id="trust">
       <div class="container">
         <div class="kicker">TRUST</div>
@@ -667,7 +640,6 @@
       </div>
     </section>
 
-    <!-- FINAL CTA -->
     <section class="cta">
       <div class="container">
         <div class="cta-box">
@@ -690,7 +662,6 @@
 
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <div class="container">
       <div class="footer-inner">
