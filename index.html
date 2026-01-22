@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -32,18 +32,15 @@
 
       --max: 1120px;
 
-      /* ✅ Sticky header offset for anchor jumps */
+      /* ✅ sticky header offset for anchor jumps */
       --header-offset: 96px;
     }
 
     *{ box-sizing: border-box; }
-
     html{
       scroll-behavior: smooth;
-      /* ✅ ensures browser scrolls anchors with padding */
       scroll-padding-top: var(--header-offset);
     }
-
     body{
       margin:0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -51,10 +48,8 @@
       background: var(--bg);
       line-height: 1.5;
     }
-
     a{ color: inherit; text-decoration: none; }
     img{ max-width: 100%; display:block; }
-
     .container{
       width: 100%;
       max-width: var(--max);
@@ -62,15 +57,19 @@
       padding: 0 18px;
     }
 
-    /* ✅ Apply scroll margin to every section so headings never get cut */
-    section{ scroll-margin-top: var(--header-offset); }
+    section{ padding: 66px 0; scroll-margin-top: var(--header-offset); }
+    .section-muted{
+      background: var(--surface-2);
+      border-top: 1px solid rgba(229,231,235,.65);
+      border-bottom: 1px solid rgba(229,231,235,.65);
+    }
 
     /* Header */
     .header{
       position: sticky;
       top: 0;
       z-index: 50;
-      background: linear-gradient(90deg, rgba(14,165,233,.10), rgba(37,99,235,.06), rgba(34,197,94,.06));
+      background: linear-gradient(90deg, rgba(14,165,233,.12), rgba(37,99,235,.07), rgba(34,197,94,.06));
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(229,231,235,.9);
     }
@@ -80,7 +79,6 @@
       justify-content: space-between;
       gap: 14px;
       padding: 12px 0;
-      flex-wrap: nowrap;
     }
 
     .brand{
@@ -127,7 +125,7 @@
       padding: 8px 10px;
       border-radius: 10px;
       border: 1px solid transparent;
-      font-weight: 700;
+      font-weight: 800;
     }
     nav a:hover{
       background: rgba(255,255,255,.7);
@@ -171,25 +169,105 @@
     }
     .btn-primary:hover{ box-shadow: 0 18px 34px rgba(37, 99, 235, .26); }
 
-    /* ✅ Bigger Play Store icon */
+    /* ✅ bigger Play Store icon */
     .btn-icon{
-      width: 28px;
-      height: 28px;
-      border-radius: 9px;
+      width: 30px;
+      height: 30px;
+      border-radius: 10px;
       object-fit: contain;
-      background: rgba(255,255,255,.92);
-      padding: 4px;
+      background: rgba(255,255,255,.95);
+      padding: 5px;
       box-shadow: 0 10px 18px rgba(15,23,42,.16);
     }
 
-    /* Sections */
-    section{ padding: 66px 0; }
-    .section-muted{
-      background: var(--surface-2);
-      border-top: 1px solid rgba(229,231,235,.65);
-      border-bottom: 1px solid rgba(229,231,235,.65);
+    /* ✅ Mobile hamburger */
+    .menu-btn{
+      display:none;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid rgba(229,231,235,.95);
+      background: rgba(255,255,255,.86);
+      box-shadow: var(--shadow-soft);
+      cursor: pointer;
+      align-items:center;
+      justify-content:center;
     }
+    .menu-btn svg{ width: 22px; height: 22px; }
 
+    /* Mobile drawer */
+    .drawer-overlay{
+      position: fixed;
+      inset: 0;
+      background: rgba(15,23,42,.45);
+      display:none;
+      z-index: 100;
+    }
+    .drawer{
+      position: fixed;
+      right: 16px;
+      top: 16px;
+      width: min(92vw, 380px);
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(229,231,235,.95);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 14px;
+      display:none;
+      z-index: 101;
+    }
+    .drawer-head{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(229,231,235,.9);
+      margin-bottom: 10px;
+    }
+    .drawer-title{
+      font-weight: 900;
+      font-size: 14px;
+      color: var(--text);
+    }
+    .drawer-close{
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      border: 1px solid rgba(229,231,235,.95);
+      background: #fff;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .drawer-links{
+      display:flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-bottom: 12px;
+    }
+    .drawer-links a{
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(229,231,235,.85);
+      background: rgba(248,250,252,.9);
+      font-weight: 900;
+      color: var(--text);
+    }
+    .drawer-links a:hover{
+      box-shadow: var(--shadow-soft);
+      background: #fff;
+    }
+    .drawer-cta{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+    }
+    .drawer-cta a{ width: 100%; }
+
+    /* Typography */
     .kicker{
       font-size: 12px;
       font-weight: 900;
@@ -199,26 +277,21 @@
       margin-bottom: 10px;
     }
     h1{
-      font-size: clamp(28px, 3.6vw, 48px);
-      line-height: 1.10;
+      font-size: clamp(28px, 3.8vw, 52px);
+      line-height: 1.08;
       margin: 10px 0 14px;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.04em;
+      font-weight: 900;
     }
     h2{
       font-size: clamp(22px, 2.4vw, 32px);
       line-height: 1.2;
       margin: 0 0 12px;
       letter-spacing: -0.01em;
+      font-weight: 900;
     }
-    h3{
-      font-size: 18px;
-      margin: 0 0 8px;
-    }
-    p{
-      margin: 0 0 14px;
-      color: var(--muted);
-      font-size: 15px;
-    }
+    h3{ font-size: 18px; margin: 0 0 8px; font-weight: 900; }
+    p{ margin: 0 0 14px; color: var(--muted); font-size: 15px; }
 
     .grid{
       display:grid;
@@ -236,10 +309,29 @@
       background: #fff;
     }
 
+    /* ✅ More attractive top area (hero) */
     .hero{
       padding-top: 44px;
-      background: #ffffff;
+      background:
+        radial-gradient(900px 360px at 12% 8%, rgba(14,165,233,.16), transparent 60%),
+        radial-gradient(800px 340px at 86% 18%, rgba(37,99,235,.12), transparent 62%),
+        radial-gradient(820px 360px at 78% 92%, rgba(34,197,94,.10), transparent 62%),
+        linear-gradient(180deg, #ffffff, #fbfdff);
+      position: relative;
+      overflow: hidden;
     }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset: -120px -120px auto auto;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(14,165,233,.18), rgba(37,99,235,.10), transparent 66%);
+      filter: blur(2px);
+      pointer-events:none;
+    }
+
     .actions{
       display:flex;
       gap: 12px;
@@ -259,17 +351,60 @@
       gap: 8px;
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(14,165,233,.08);
+      background: rgba(14,165,233,.09);
       border: 1px solid rgba(14,165,233,.18);
       color: #0b4b63;
       font-size: 13px;
       font-weight: 900;
     }
 
+    /* ✅ premium mini-stats strip */
+    .stats{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .stat{
+      border-radius: 18px;
+      border: 1px solid rgba(229,231,235,.92);
+      background: rgba(255,255,255,.80);
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow-soft);
+      padding: 12px 14px;
+      display:flex;
+      gap: 10px;
+      align-items:center;
+    }
+    .stat-ico{
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: linear-gradient(135deg, rgba(14,165,233,.18), rgba(37,99,235,.10));
+      border: 1px solid rgba(14,165,233,.18);
+    }
+    .stat-ico svg{ width: 18px; height: 18px; }
+    .stat b{
+      font-size: 13px;
+      font-weight: 900;
+      display:block;
+      color: var(--text);
+      line-height: 1.1;
+    }
+    .stat span{
+      font-size: 12px;
+      color: var(--muted-2);
+      font-weight: 700;
+    }
+
     .mini-note{
       font-size: 12px;
       color: var(--muted-2);
       margin-top: 10px;
+      font-weight: 700;
     }
 
     .three{
@@ -286,10 +421,8 @@
       padding: 18px;
       transition: transform .10s ease, box-shadow .2s ease;
     }
-    .mini-card:hover{
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-    }
+    .mini-card:hover{ transform: translateY(-2px); box-shadow: var(--shadow); }
+
     .badge{
       display:inline-flex;
       padding: 6px 10px;
@@ -370,6 +503,7 @@
       flex-wrap: wrap;
       color: var(--muted-2);
       font-size: 13px;
+      font-weight: 700;
     }
     .footer-links{
       display:flex;
@@ -380,13 +514,16 @@
       color: var(--muted);
       text-decoration: underline;
       text-underline-offset: 3px;
+      font-weight: 800;
     }
 
     @media (max-width: 980px){
       nav{ display:none; }
+      .menu-btn{ display:flex; }
       .grid, .grid.reverse{ grid-template-columns: 1fr; }
       .three{ grid-template-columns: 1fr; }
       .steps{ grid-template-columns: 1fr 1fr; }
+      .stats{ grid-template-columns: 1fr; }
       section{ padding: 54px 0; }
       .hero{ padding-top: 28px; }
       .brand{ min-width: auto; }
@@ -412,7 +549,6 @@
           </div>
         </a>
 
-        <!-- ✅ New order: Exchange → Sustainability → Features → Donate → Buy & Sell ... -->
         <nav aria-label="Primary">
           <a href="#exchange">Exchange</a>
           <a href="#sustainability">Sustainability</a>
@@ -425,6 +561,13 @@
         </nav>
 
         <div class="header-cta">
+          <!-- ✅ hamburger for mobile -->
+          <button class="menu-btn" id="openMenu" aria-label="Open menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M4 7h16M4 12h16M4 17h16"></path>
+            </svg>
+          </button>
+
           <a class="btn btn-primary"
              href="https://play.google.com/store/apps/details?id=com.barterstore.app"
              target="_blank" rel="noopener">
@@ -435,6 +578,37 @@
       </div>
     </div>
   </header>
+
+  <!-- ✅ Mobile drawer -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <div class="drawer" id="drawer">
+    <div class="drawer-head">
+      <div class="drawer-title">Menu</div>
+      <button class="drawer-close" id="closeMenu" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M6 6l12 12M18 6L6 18"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="drawer-links">
+      <a href="#exchange" class="drawerLink">Exchange</a>
+      <a href="#sustainability" class="drawerLink">Sustainability</a>
+      <a href="#features" class="drawerLink">Features</a>
+      <a href="#donate" class="drawerLink">Donate</a>
+      <a href="#buySell" class="drawerLink">Buy & Sell</a>
+      <a href="#how" class="drawerLink">How it works</a>
+      <a href="#assistant" class="drawerLink">BarterBot</a>
+      <a href="#trust" class="drawerLink">Trust</a>
+    </div>
+    <div class="drawer-cta">
+      <a class="btn btn-primary"
+         href="https://play.google.com/store/apps/details?id=com.barterstore.app"
+         target="_blank" rel="noopener">
+        <img class="btn-icon" src="assets/icon.png" alt="">
+        Install on Google Play
+      </a>
+    </div>
+  </div>
 
   <main id="top">
 
@@ -464,6 +638,45 @@
               <span class="pill">Exchange • Donate • Buy • Sell</span>
               <span class="pill">Clean & trusted listings</span>
               <span class="pill">Sustainability-friendly</span>
+            </div>
+
+            <!-- ✅ Premium attractive top strip -->
+            <div class="stats" aria-label="Key benefits">
+              <div class="stat">
+                <div class="stat-ico" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <path d="M12 21s7-4.5 7-11a7 7 0 0 0-14 0c0 6.5 7 11 7 11z"></path>
+                    <circle cx="12" cy="10" r="2"></circle>
+                  </svg>
+                </div>
+                <div>
+                  <b>Local-first marketplace</b>
+                  <span>See what matters in your city</span>
+                </div>
+              </div>
+              <div class="stat">
+                <div class="stat-ico" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <path d="M20 7h-9"></path><path d="M14 17H4"></path><path d="M20 17h-3"></path><path d="M7 7H4"></path>
+                    <circle cx="9" cy="7" r="2"></circle><circle cx="15" cy="17" r="2"></circle>
+                  </svg>
+                </div>
+                <div>
+                  <b>Flexible options</b>
+                  <span>Exchange, donate, buy or sell</span>
+                </div>
+              </div>
+              <div class="stat">
+                <div class="stat-ico" aria-hidden="true" style="background:linear-gradient(135deg, rgba(34,197,94,.16), rgba(14,165,233,.10)); border-color: rgba(34,197,94,.18);">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <path d="M12 2c4 3 6 6 6 10a6 6 0 0 1-12 0c0-4 2-7 6-10z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <b>Eco impact</b>
+                  <span>Reuse more, waste less</span>
+                </div>
+              </div>
             </div>
 
             <div class="mini-note">
@@ -614,17 +827,18 @@
       </div>
     </section>
 
+    <!-- ✅ BarterBot section: TEXT ONLY (no image box/robot) -->
     <section id="assistant" class="section-muted">
       <div class="container">
-        <div class="grid reverse">
-          <div class="media">
-            <img src="assets/barterbot_assistant.png" alt="BarterBot assistant">
-          </div>
-          <div>
-            <div class="kicker">BARTERBOT</div>
-            <h2>Your Friendly Guide Inside the App</h2>
-            <p>BarterBot helps you explore BarterStore smoothly — so you can discover features faster and use the app confidently.</p>
-          </div>
+        <div style="max-width: 860px;">
+          <div class="kicker">BARTERBOT</div>
+          <h2>Your Friendly Guide Inside the App</h2>
+          <p>
+            BarterBot helps you explore BarterStore smoothly — so you can discover features faster and use the app confidently.
+          </p>
+          <p style="margin-bottom:0;">
+            Simple hints, guidance and help while you browse, post and exchange — without getting in your way.
+          </p>
         </div>
       </div>
     </section>
@@ -678,6 +892,34 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ✅ mobile menu open/close
+    const openMenu = document.getElementById('openMenu');
+    const closeMenu = document.getElementById('closeMenu');
+    const drawer = document.getElementById('drawer');
+    const overlay = document.getElementById('drawerOverlay');
+    const drawerLinks = document.querySelectorAll('.drawerLink');
+
+    function showDrawer(){
+      drawer.style.display = 'block';
+      overlay.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+    function hideDrawer(){
+      drawer.style.display = 'none';
+      overlay.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    openMenu?.addEventListener('click', showDrawer);
+    closeMenu?.addEventListener('click', hideDrawer);
+    overlay?.addEventListener('click', hideDrawer);
+    drawerLinks.forEach(a => a.addEventListener('click', hideDrawer));
+
+    // ✅ ESC key closes drawer
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape') hideDrawer();
+    });
   </script>
 
 </body>
