@@ -3,540 +3,361 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BarterStore — India’s local barter marketplace</title>
-  <meta name="description" content="BarterStore is India’s local marketplace to Barter, Donate, Sell, and Buy — fast, simple, and location-based." />
-  <meta name="theme-color" content="#071427" />
+  <title>BarterStore — Barter • Donate • Sell • Buy</title>
+
+  <!-- Basic SEO -->
+  <meta name="description" content="BarterStore is a smart local marketplace to Barter, Donate, Sell, and Buy — fast, safe, and city-focused." />
+  <meta name="theme-color" content="#06152a" />
+
+  <!-- Open Graph (social preview) -->
+  <meta property="og:title" content="BarterStore — Barter • Donate • Sell • Buy" />
+  <meta property="og:description" content="A smart local marketplace to Barter, Donate, Sell, and Buy — fast, safe, and city-focused." />
+  <meta property="og:image" content="https://barterstore.in/assets/icon.png" />
+  <meta property="og:url" content="https://barterstore.in/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="BarterStore — Barter • Donate • Sell • Buy" />
+  <meta name="twitter:description" content="A smart local marketplace to Barter, Donate, Sell, and Buy — fast, safe, and city-focused." />
+  <meta name="twitter:image" content="https://barterstore.in/assets/icon.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/icon.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
       --bg:#050b16;
-      --card:#0b1630cc;
-      --card2:#0b1630a6;
+      --card: rgba(255,255,255,0.06);
+      --card2: rgba(255,255,255,0.08);
       --text:#eaf2ff;
-      --muted:#b7c6e4;
-      --brand1:#22e6d6;
-      --brand2:#2ea8ff;
-      --stroke:rgba(255,255,255,0.10);
+      --muted: rgba(234,242,255,0.72);
+      --line: rgba(255,255,255,0.10);
+      --accent:#18f0d7;
+      --accent2:#2a7bff;
       --shadow: 0 20px 60px rgba(0,0,0,0.55);
       --radius: 18px;
-      --max: 1120px;
     }
-
     *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--text);
-      background:
-        radial-gradient(1200px 700px at 20% -10%, rgba(46,168,255,0.25), transparent 60%),
-        radial-gradient(900px 600px at 85% 10%, rgba(34,230,214,0.20), transparent 55%),
-        radial-gradient(900px 700px at 50% 90%, rgba(46,168,255,0.12), transparent 60%),
-        linear-gradient(180deg, #020615 0%, #050b16 60%, #030818 100%);
-      overflow-x:hidden;
-    }
-
+    html,body{margin:0;padding:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial; background:var(--bg); color:var(--text);}
     a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px;}
+    .wrap{max-width:1120px; margin:0 auto; padding:0 20px;}
     .nav{
-      position:sticky; top:0; z-index:5;
+      position:sticky; top:0; z-index:30;
       backdrop-filter: blur(14px);
-      background: rgba(5,11,22,0.55);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: linear-gradient(to bottom, rgba(5,11,22,0.92), rgba(5,11,22,0.55));
+      border-bottom:1px solid var(--line);
     }
-    .navInner{
-      height:74px; display:flex; align-items:center; justify-content:space-between;
-    }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-    }
-    .brand img{
-      width:40px; height:40px; border-radius:12px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
-    }
-    .brandName{
-      font-weight:800; letter-spacing:0.2px;
-      display:flex; flex-direction:column; line-height:1.1;
-    }
-    .brandName small{
-      color:var(--muted);
-      font-weight:600;
-      letter-spacing:0.2px;
-      margin-top:3px;
-      font-size:12px;
-    }
-
-    .navLinks{
-      display:flex; align-items:center; gap:14px;
-    }
-    .pill{
-      padding:10px 14px;
-      border:1px solid rgba(255,255,255,0.10);
-      border-radius:999px;
-      color:var(--muted);
-      font-weight:650;
-      font-size:14px;
-      background: rgba(255,255,255,0.04);
-      transition: transform .15s ease, background .15s ease, border .15s ease;
-    }
-    .pill:hover{
-      transform: translateY(-1px);
-      background: rgba(255,255,255,0.06);
-      border-color: rgba(255,255,255,0.16);
-      color: var(--text);
-    }
-
+    .nav-in{display:flex; align-items:center; justify-content:space-between; padding:14px 0;}
+    .brand{display:flex; gap:12px; align-items:center;}
+    .brand img{width:40px; height:40px; border-radius:12px; box-shadow: 0 10px 30px rgba(0,0,0,0.35);}
+    .brand b{font-size:16px; letter-spacing:0.2px;}
+    .links{display:flex; gap:18px; align-items:center;}
+    .links a{color:var(--muted); font-weight:600; font-size:13px;}
+    .links a:hover{color:var(--text)}
     .cta{
-      padding:11px 16px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.14);
-      background: linear-gradient(90deg, rgba(34,230,214,0.90), rgba(46,168,255,0.92));
-      color:#041024;
-      font-weight:900;
-      letter-spacing:0.2px;
-      box-shadow: 0 14px 35px rgba(46,168,255,0.18);
-      transition: transform .15s ease, filter .15s ease;
-    }
-    .cta:hover{
-      transform: translateY(-1px);
-      filter: brightness(1.05);
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px; border-radius:12px; font-weight:800; font-size:13px;
+      background: linear-gradient(135deg, var(--accent), #6bf7ff 45%, #7aa8ff 100%);
+      color:#041019;
+      box-shadow: 0 14px 40px rgba(24,240,215,0.18);
+      border:1px solid rgba(255,255,255,0.15);
     }
 
     .hero{
-      padding: 56px 0 26px;
-    }
-    .heroGrid{
-      display:grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 22px;
-      align-items:stretch;
-    }
-
-    .heroCard{
-      border:1px solid rgba(255,255,255,0.10);
-      background: linear-gradient(180deg, rgba(11,22,48,0.78), rgba(11,22,48,0.42));
-      border-radius: 26px;
-      padding: 32px;
-      box-shadow: var(--shadow);
       position:relative;
+      padding:64px 0 44px;
       overflow:hidden;
     }
     .glow{
-      position:absolute;
-      inset:-120px -120px auto auto;
-      width:380px; height:380px;
-      background: radial-gradient(circle at 30% 30%, rgba(34,230,214,0.35), transparent 60%);
+      position:absolute; inset:-220px -200px auto auto;
+      width:520px; height:520px;
+      background: radial-gradient(circle at 30% 30%, rgba(24,240,215,0.30), rgba(42,123,255,0.10), transparent 60%);
+      filter: blur(2px);
+      transform: rotate(18deg);
+      pointer-events:none;
+    }
+    .glow2{
+      position:absolute; inset:auto auto -260px -220px;
+      width:560px; height:560px;
+      background: radial-gradient(circle at 40% 40%, rgba(42,123,255,0.28), rgba(24,240,215,0.08), transparent 60%);
       filter: blur(2px);
       pointer-events:none;
     }
 
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.04);
-      color: var(--muted);
-      font-weight:700;
-      font-size:13px;
-    }
-    .dot{
-      width:10px; height:10px; border-radius:999px;
-      background: linear-gradient(90deg, var(--brand1), var(--brand2));
-      box-shadow: 0 0 14px rgba(34,230,214,0.35);
-    }
-
-    h1{
-      margin: 16px 0 10px;
-      font-size: clamp(34px, 4.2vw, 52px);
-      line-height:1.05;
-      letter-spacing:-0.6px;
-    }
-    .sub{
-      margin:0;
-      color: var(--muted);
-      font-size: 16px;
-      line-height:1.6;
-      max-width: 62ch;
-    }
-
-    .heroBtns{
-      display:flex;
-      gap:12px;
-      margin-top: 18px;
-      flex-wrap:wrap;
-    }
-    .btnPrimary{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding: 12px 16px;
-      border-radius: 14px;
-      background: linear-gradient(90deg, rgba(34,230,214,0.94), rgba(46,168,255,0.94));
-      color:#041024;
-      font-weight:950;
-      border: 0;
-      box-shadow: 0 18px 45px rgba(46,168,255,0.20);
-    }
-    .btnSecondary{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding: 12px 16px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.04);
-      color: var(--text);
-      font-weight:800;
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-    .btnSecondary:hover{ border-color: rgba(255,255,255,0.18); }
-
-    .sideCard{
-      border:1px solid rgba(255,255,255,0.10);
-      background: linear-gradient(180deg, rgba(11,22,48,0.55), rgba(11,22,48,0.26));
-      border-radius: 26px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
-    }
-
-    .miniTitle{
-      font-weight:900;
-      letter-spacing:0.2px;
-      margin:0 0 10px;
-      font-size: 16px;
-    }
-    .miniText{
-      margin:0 0 14px;
-      color: var(--muted);
-      line-height:1.65;
-      font-size: 14px;
-    }
-
-    .statGrid{
+    .hero-grid{
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 14px;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap:26px;
+      align-items:stretch;
     }
-    .stat{
-      padding: 14px;
-      border-radius: 16px;
-      border:1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.04);
-    }
-    .stat b{
-      display:block;
-      font-size: 18px;
-      letter-spacing:-0.2px;
-    }
-    .stat span{
-      display:block;
-      margin-top: 4px;
-      color: var(--muted);
-      font-weight:700;
-      font-size: 12px;
+    @media (max-width: 920px){
+      .hero-grid{grid-template-columns:1fr; gap:18px;}
+      .links{display:none;}
     }
 
-    .section{
-      padding: 22px 0 8px;
-    }
-    .section h2{
-      margin: 0 0 10px;
-      font-size: 22px;
-      letter-spacing: -0.2px;
-    }
-    .section p{
-      margin:0 0 16px;
-      color: var(--muted);
-      line-height:1.65;
-    }
-
-    .cards{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-    .card{
-      border:1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.04);
+    .panel{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
       border-radius: var(--radius);
-      padding: 16px;
-      transition: transform .15s ease, border .15s ease, background .15s ease;
+      box-shadow: var(--shadow);
     }
-    .card:hover{
-      transform: translateY(-2px);
-      border-color: rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.06);
+    .hero-left{padding:28px;}
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px; border-radius:999px;
+      border:1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color:var(--muted);
+      font-weight:700; font-size:12px;
     }
-    .iconBox{
-      width:40px; height:40px;
-      border-radius: 14px;
-      display:flex; align-items:center; justify-content:center;
-      background: linear-gradient(180deg, rgba(34,230,214,0.18), rgba(46,168,255,0.12));
-      border: 1px solid rgba(255,255,255,0.10);
-      margin-bottom: 10px;
-      font-weight: 950;
-      color: var(--text);
+    .dot{width:9px; height:9px; border-radius:999px; background: var(--accent); box-shadow:0 0 0 6px rgba(24,240,215,0.10);}
+    h1{margin:14px 0 10px; font-size:42px; line-height:1.10; letter-spacing:-0.7px;}
+    @media (max-width: 520px){ h1{font-size:34px;} }
+    .sub{margin:0; color:var(--muted); font-size:15px; line-height:1.6;}
+    .actions{display:flex; gap:12px; margin-top:18px; flex-wrap:wrap;}
+    .btn{
+      display:inline-flex; gap:10px; align-items:center; justify-content:center;
+      padding:12px 14px; border-radius:14px; font-weight:800; font-size:14px;
+      border:1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.04);
+      color:var(--text);
     }
-    .card h3{
-      margin:0 0 6px;
-      font-size: 15px;
-      font-weight: 950;
-    }
-    .card p{
-      margin:0;
-      font-size: 13.5px;
-      color: var(--muted);
-      line-height:1.55;
+    .btn:hover{background: rgba(255,255,255,0.06)}
+    .btn.primary{
+      background: linear-gradient(135deg, var(--accent), #6bf7ff 45%, #7aa8ff 100%);
+      color:#041019;
+      border:1px solid rgba(255,255,255,0.15);
     }
 
-    .shots{
-      margin-top: 14px;
-      display:grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 12px;
-    }
-    .shot{
-      border-radius: 18px;
-      border: 1px dashed rgba(255,255,255,0.18);
+    .bullets{display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top:18px;}
+    @media (max-width: 520px){ .bullets{grid-template-columns:1fr;} }
+    .chip{
+      display:flex; gap:10px; align-items:flex-start;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,0.10);
       background: rgba(255,255,255,0.03);
-      min-height: 190px;
+      color:var(--muted);
+      font-weight:600;
+      font-size:13px;
+      line-height:1.45;
+    }
+    .chip span{
+      margin-top:2px;
+      width:10px; height:10px; border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow:0 0 0 6px rgba(42,123,255,0.10);
+      flex:0 0 auto;
+    }
+
+    .hero-right{padding:22px; display:flex; flex-direction:column; gap:12px;}
+    .mock{
+      border-radius: 20px;
+      border:1px solid rgba(255,255,255,0.12);
+      background: radial-gradient(circle at 30% 20%, rgba(24,240,215,0.18), transparent 45%),
+                  radial-gradient(circle at 70% 60%, rgba(42,123,255,0.18), transparent 48%),
+                  rgba(0,0,0,0.22);
+      padding:16px;
+      flex:1;
       display:flex;
       align-items:center;
       justify-content:center;
-      color: rgba(255,255,255,0.55);
-      font-weight:800;
-      text-align:center;
-      padding: 14px;
+      min-height:240px;
+      position:relative;
+      overflow:hidden;
     }
+    .mock::after{
+      content:"";
+      position:absolute; inset:-60px;
+      background: linear-gradient(120deg, transparent 40%, rgba(255,255,255,0.10), transparent 60%);
+      transform: rotate(18deg);
+      opacity:0.65;
+    }
+    .logo-big{
+      width:132px; height:132px; border-radius:28px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.55);
+      border:1px solid rgba(255,255,255,0.18);
+      background:#06152a;
+      position:relative;
+      z-index:2;
+    }
+    .mini{
+      display:grid; grid-template-columns: 1fr 1fr; gap:12px;
+    }
+    .mini .card{
+      border:1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.03);
+      border-radius:16px;
+      padding:12px;
+    }
+    .mini .card b{display:block; font-size:13px; margin-bottom:6px;}
+    .mini .card p{margin:0; color:var(--muted); font-size:12px; line-height:1.45;}
+
+    .section{padding:34px 0;}
+    .section h2{margin:0 0 10px; font-size:26px; letter-spacing:-0.4px;}
+    .section p{margin:0; color:var(--muted); line-height:1.7;}
+    .grid3{
+      display:grid; grid-template-columns: repeat(3, 1fr);
+      gap:14px; margin-top:14px;
+    }
+    @media (max-width: 920px){ .grid3{grid-template-columns:1fr; } }
+    .feature{
+      padding:16px;
+      border-radius: var(--radius);
+      border:1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.03);
+    }
+    .feature b{display:block; margin-bottom:8px;}
+    .feature span{color:var(--muted); font-size:13px; line-height:1.6; display:block;}
 
     .footer{
-      margin-top: 26px;
-      padding: 22px 0 34px;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      color: var(--muted);
-      font-size: 13px;
+      border-top:1px solid var(--line);
+      padding:22px 0;
+      color:var(--muted);
+      font-size:13px;
     }
-    .footerRow{
-      display:flex;
-      justify-content:space-between;
-      gap: 14px;
-      flex-wrap:wrap;
-      align-items:center;
+    .footer-in{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; flex-wrap:wrap;
     }
-    .footer a{
-      color: var(--text);
-      opacity: 0.9;
-      font-weight: 750;
-    }
-    .footer a:hover{ opacity: 1; }
-
-    /* responsive */
-    @media (max-width: 980px){
-      .heroGrid{ grid-template-columns: 1fr; }
-      .cards{ grid-template-columns: 1fr; }
-      .shots{ grid-template-columns: 1fr; }
-      .navLinks{ display:none; }
-    }
+    .footlinks{display:flex; gap:14px; flex-wrap:wrap;}
+    .footlinks a{color:var(--muted); font-weight:700;}
+    .footlinks a:hover{color:var(--text)}
   </style>
 </head>
 
 <body>
-  <!-- Top Nav -->
-  <div class="nav">
-    <div class="wrap navInner">
+  <header class="nav">
+    <div class="wrap nav-in">
       <div class="brand">
-        <img src="assets/icon.png" alt="BarterStore icon" />
-        <div class="brandName">
-          BarterStore
-          <small>India’s local barter marketplace</small>
+        <img src="/assets/icon.png" alt="BarterStore logo" />
+        <div>
+          <b>BarterStore</b><br/>
+          <span style="color:var(--muted); font-size:12px; font-weight:600;">Local marketplace • India</span>
         </div>
       </div>
 
-      <div class="navLinks">
-        <a class="pill" href="#features">Features</a>
-        <a class="pill" href="#screenshots">Screenshots</a>
-        <a class="pill" href="#support">Support</a>
-      </div>
+      <nav class="links">
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+      </nav>
 
-      <a class="cta" href="https://play.google.com/store/apps/details?id=com.barterstore.app" target="_blank" rel="noreferrer">
-        Get it on Google Play
-      </a>
+      <a class="cta" href="#download">Get the app</a>
     </div>
-  </div>
+  </header>
 
-  <!-- Hero -->
-  <div class="hero">
-    <div class="wrap">
-      <div class="heroGrid">
-        <div class="heroCard">
-          <div class="glow"></div>
+  <main>
+    <section class="hero">
+      <div class="glow"></div>
+      <div class="glow2"></div>
 
-          <div class="badge">
-            <span class="dot"></span>
-            Barter • Donate • Sell • Buy — locally
-          </div>
-
-          <h1>
-            Turn unused items into value — fast, safe, and location-based.
-          </h1>
-
+      <div class="wrap hero-grid">
+        <div class="panel hero-left">
+          <div class="kicker"><span class="dot"></span> Barter • Donate • Sell • Buy — in your city</div>
+          <h1>Turn unused items into value — fast, simple, and local.</h1>
           <p class="sub">
-            BarterStore helps you discover nearby deals, exchange items, donate what you don’t need,
-            and connect with real people in your city — with a clean modern experience.
+            BarterStore helps you discover nearby deals, swap items, donate to others, or sell what you don’t need —
+            with city-first browsing and a clean modern experience.
           </p>
 
-          <div class="heroBtns">
-            <a class="btnPrimary" href="https://play.google.com/store/apps/details?id=com.barterstore.app" target="_blank" rel="noreferrer">
-              ✅ Download on Google Play
-            </a>
-            <a class="btnSecondary" href="#features">
-              Explore features →
-            </a>
+          <div class="actions" id="download">
+            <!-- Replace # with your Play Store link once your app is public -->
+            <a class="btn primary" href="#" target="_blank" rel="noopener">📲 Download on Google Play</a>
+            <a class="btn" href="/privacy.html">🔒 Privacy Policy</a>
+            <a class="btn" href="/terms.html">📄 Terms</a>
           </div>
 
-          <p style="margin-top:14px; color: rgba(255,255,255,0.55); font-weight:700; font-size:12px;">
-            Official website: <b>barterstore.in</b>
-          </p>
+          <div class="bullets">
+            <div class="chip"><span></span> City-based browsing for faster discovery and relevance.</div>
+            <div class="chip"><span></span> Barter + Donate flows — not just buy/sell.</div>
+            <div class="chip"><span></span> Clean UI built for trust and easy posting.</div>
+            <div class="chip"><span></span> Support email: <b style="color:var(--text); font-weight:800;">support@barterstore.in</b></div>
+          </div>
         </div>
 
-        <div class="sideCard">
-          <p class="miniTitle">Why BarterStore?</p>
-          <p class="miniText">
-            Built for India-first local discovery. Simple to use, modern UI, and designed to grow with community trust.
-          </p>
+        <div class="panel hero-right">
+          <div class="mock" aria-label="App preview">
+            <img class="logo-big" src="/assets/icon.png" alt="BarterStore app icon" />
+          </div>
 
-          <div class="statGrid">
-            <div class="stat">
-              <b>City-first</b>
-              <span>Local discovery focus</span>
-            </div>
-            <div class="stat">
-              <b>Modern UI</b>
-              <span>Clean & premium look</span>
-            </div>
-            <div class="stat">
+          <div class="mini">
+            <div class="card">
               <b>Fast posting</b>
-              <span>Easy listing flow</span>
+              <p>Add photos, choose category, set city/area, and publish quickly.</p>
             </div>
-            <div class="stat">
-              <b>Trust-ready</b>
-              <span>Policy + support links</span>
-            </div>
-          </div>
-
-          <div style="margin-top:14px; padding:14px; border-radius:16px; border:1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.04);">
-            <div style="font-weight:950; margin-bottom:6px;">Need support?</div>
-            <div style="color: var(--muted); font-weight:700; font-size:13px;">
-              Email: <a href="mailto:support@barterstore.in">support@barterstore.in</a>
+            <div class="card">
+              <b>Smart discovery</b>
+              <p>See newly added items first and browse by locality.</p>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- Features -->
-  <div class="section" id="features">
-    <div class="wrap">
-      <h2>Features that feel premium</h2>
-      <p>Designed to be simple, modern, and trustworthy — exactly what users expect from a serious marketplace app.</p>
+    <section class="section" id="features">
+      <div class="wrap">
+        <h2>Why people will love BarterStore</h2>
+        <p>Built to feel modern, safe, and city-first — designed for India.</p>
 
-      <div class="cards">
-        <div class="card">
-          <div class="iconBox">📍</div>
-          <h3>Location-based discovery</h3>
-          <p>See posts from your city first, so you find nearby deals quickly without noise.</p>
-        </div>
-
-        <div class="card">
-          <div class="iconBox">🔁</div>
-          <h3>Barter + donate + sell + buy</h3>
-          <p>Multiple ways to exchange value — swap, donate to help others, or sell directly.</p>
-        </div>
-
-        <div class="card">
-          <div class="iconBox">⚡</div>
-          <h3>Fast posting flow</h3>
-          <p>Create a listing quickly with photos, category, location, and clear details.</p>
-        </div>
-
-        <div class="card">
-          <div class="iconBox">🛡️</div>
-          <h3>Trust & safety ready</h3>
-          <p>Clear policies + support contact for compliance and user confidence.</p>
-        </div>
-
-        <div class="card">
-          <div class="iconBox">💬</div>
-          <h3>Chat & negotiation friendly</h3>
-          <p>Talk, negotiate, and close deals smoothly — built for real people and real exchanges.</p>
-        </div>
-
-        <div class="card">
-          <div class="iconBox">🎨</div>
-          <h3>Modern UI</h3>
-          <p>Premium design language that feels clean, polished, and “Play Store ready”.</p>
+        <div class="grid3">
+          <div class="feature">
+            <b>Barter + Donate + Sell + Buy</b>
+            <span>Multiple ways to exchange items — not limited to one model.</span>
+          </div>
+          <div class="feature">
+            <b>Location focused</b>
+            <span>Browse city-wise to keep results relevant and useful.</span>
+          </div>
+          <div class="feature">
+            <b>Trust & clarity</b>
+            <span>Simple UI, clear actions, and dedicated support contact.</span>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- Screenshots -->
-  <div class="section" id="screenshots">
-    <div class="wrap">
-      <h2>Screenshots</h2>
-      <p>Add your app screenshots here. For now these are placeholders. When you’re ready, I’ll tell you exactly how to add images cleanly.</p>
-
-      <div class="shots">
-        <div class="shot">Screenshot 1<br/>(Home / Browse)</div>
-        <div class="shot">Screenshot 2<br/>(Post details)</div>
-        <div class="shot">Screenshot 3<br/>(Create post)</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Support -->
-  <div class="section" id="support">
-    <div class="wrap">
-      <h2>Support</h2>
-      <p>If you need help, contact us anytime.</p>
-
-      <div class="cards" style="grid-template-columns: 1fr;">
-        <div class="card">
-          <h3 style="margin-bottom:8px;">Contact</h3>
-          <p style="margin-bottom:10px;">
-            Support email: <a href="mailto:support@barterstore.in"><b>support@barterstore.in</b></a>
-          </p>
-          <p style="margin:0;">
-            Play Store: <a href="https://play.google.com/store/apps/details?id=com.barterstore.app" target="_blank" rel="noreferrer"><b>BarterStore listing</b></a>
-          </p>
+    <section class="section" id="how">
+      <div class="wrap">
+        <h2>How it works</h2>
+        <div class="grid3">
+          <div class="feature">
+            <b>1) Browse</b>
+            <span>Explore items in your city, filter by category, and find what you need.</span>
+          </div>
+          <div class="feature">
+            <b>2) Post</b>
+            <span>Upload photos, set item details, and publish — quick and easy.</span>
+          </div>
+          <div class="feature">
+            <b>3) Deal</b>
+            <span>Barter, donate, or buy/sell — choose what fits best for both sides.</span>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- Footer -->
-  <div class="footer">
-    <div class="wrap footerRow">
-      <div>
-        © <span id="y"></span> BarterStore • All rights reserved
+    <footer class="footer">
+      <div class="wrap footer-in">
+        <div>© <span id="y"></span> BarterStore • All rights reserved.</div>
+        <div class="footlinks">
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms</a>
+          <a href="/app-ads.txt">app-ads.txt</a>
+        </div>
       </div>
-      <div style="display:flex; gap:14px; flex-wrap:wrap;">
-        <!-- Update these if you move the pages -->
-        <a href="https://thakurvishalsingh09.github.io/barterstore-privacy/" target="_blank" rel="noreferrer">Privacy Policy</a>
-        <a href="#" onclick="alert('Add your Terms page link here when ready.'); return false;">Terms</a>
-      </div>
-    </div>
-  </div>
+    </footer>
+  </main>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    document.getElementById("y").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
