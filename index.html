@@ -3,32 +3,766 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BarterStore — Privacy Policy</title>
+  <title>BarterStore — Reviving a Timeless Way to Exchange Value</title>
+  <meta name="description" content="BarterStore is a modern, location-based marketplace to barter, buy, sell, and donate items within your city — simply, responsibly, and securely." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    body{ margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:#0f172a; background:#fff; }
-    .wrap{ max-width: 920px; margin: 0 auto; padding: 36px 18px; }
-    a{ color:#2563eb; text-decoration: underline; text-underline-offset: 3px; }
-    h1{ margin: 0 0 10px; letter-spacing:-0.02em; }
-    p{ color:#475569; line-height:1.6; }
-    .box{ margin-top: 18px; border:1px solid #e5e7eb; background:#f7f8fb; border-radius: 16px; padding: 16px; }
+    :root{
+      --bg: #ffffff;
+      --surface: #ffffff;
+      --surface-2: #f7f8fb;
+      --text: #0f172a;
+      --muted: #475569;
+      --muted-2: #64748b;
+      --border: #e5e7eb;
+      --shadow: 0 18px 40px rgba(15, 23, 42, .08);
+      --shadow-soft: 0 10px 24px rgba(15, 23, 42, .06);
+      --radius: 18px;
+      --radius-lg: 24px;
+
+      /* Brand accent (fintech clean). You can tweak later. */
+      --accent: #0ea5e9;
+      --accent-2: #2563eb;
+
+      --max: 1120px;
+    }
+
+    *{ box-sizing: border-box; }
+    html{ scroll-behavior: smooth; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.5;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    img{ max-width: 100%; display:block; }
+    .container{
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 18px;
+    }
+
+    /* Header */
+    .header{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,.78);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(229,231,235,.8);
+    }
+    .header-inner{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      padding: 12px 0;
+      gap: 14px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      min-width: 170px;
+    }
+    .brand img{
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      object-fit: contain;
+    }
+    .brand-name{
+      font-weight: 700;
+      letter-spacing: .2px;
+      line-height: 1.1;
+    }
+    .brand-tag{
+      font-size: 12px;
+      color: var(--muted-2);
+      margin-top: 2px;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    nav a{
+      font-size: 13px;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 10px;
+    }
+    nav a:hover{
+      background: #f1f5f9;
+      color: var(--text);
+    }
+
+    .header-cta{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      justify-content: flex-end;
+      min-width: 240px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 11px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 13px;
+      box-shadow: none;
+      transition: transform .06s ease, box-shadow .2s ease, background .2s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn:hover{ background: #fbfcff; box-shadow: var(--shadow-soft); }
+    .btn:active{ transform: translateY(1px); }
+
+    .btn-primary{
+      border: 0;
+      color: white;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 14px 28px rgba(37, 99, 235, .22);
+    }
+    .btn-primary:hover{
+      box-shadow: 0 18px 34px rgba(37, 99, 235, .26);
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--surface-2);
+      border: 1px solid rgba(229,231,235,.9);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* Sections */
+    section{
+      padding: 64px 0;
+    }
+    .section-muted{
+      background: var(--surface-2);
+      border-top: 1px solid rgba(229,231,235,.6);
+      border-bottom: 1px solid rgba(229,231,235,.6);
+    }
+    .kicker{
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted-2);
+      margin-bottom: 10px;
+    }
+    h1{
+      font-size: clamp(28px, 3.4vw, 44px);
+      line-height: 1.15;
+      margin: 10px 0 14px;
+      letter-spacing: -0.02em;
+    }
+    h2{
+      font-size: clamp(22px, 2.4vw, 30px);
+      line-height: 1.2;
+      margin: 0 0 12px;
+      letter-spacing: -0.01em;
+    }
+    h3{
+      font-size: 18px;
+      margin: 0 0 8px;
+    }
+    p{
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 26px;
+      align-items:center;
+    }
+    .grid.reverse{
+      grid-template-columns: .95fr 1.05fr;
+    }
+
+    .card{
+      background: var(--surface);
+      border: 1px solid rgba(229,231,235,.85);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      overflow:hidden;
+    }
+
+    .media{
+      border-radius: var(--radius-lg);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(229,231,235,.85);
+      background: #fff;
+    }
+    .media img{
+      width: 100%;
+      height: auto;
+    }
+
+    /* Hero */
+    .hero{
+      padding-top: 42px;
+    }
+    .hero .actions{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+    .mini-note{
+      font-size: 12px;
+      color: var(--muted-2);
+      margin-top: 10px;
+    }
+
+    .trust-strip{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    /* Full-width text block */
+    .narrow{
+      max-width: 820px;
+    }
+
+    /* Feature 3 cards */
+    .three{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+    .mini-card{
+      background: var(--surface);
+      border: 1px solid rgba(229,231,235,.9);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      padding: 18px;
+    }
+    .mini-card p{ margin-bottom: 0; }
+
+    /* Steps */
+    .steps{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .step{
+      border-radius: var(--radius);
+      background: var(--surface);
+      border: 1px solid rgba(229,231,235,.9);
+      padding: 16px;
+      box-shadow: var(--shadow-soft);
+    }
+    .step .num{
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight: 800;
+      color: white;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      margin-bottom: 10px;
+    }
+    .step p{ margin:0; color: var(--muted); }
+
+    /* Categories */
+    .categories{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .cat{
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(229,231,235,.9);
+      background: #fff;
+      color: var(--muted);
+      font-weight: 600;
+      text-align:center;
+    }
+
+    /* Final CTA */
+    .cta{
+      text-align:center;
+    }
+    .cta-box{
+      max-width: 920px;
+      margin: 0 auto;
+      border-radius: 28px;
+      background: linear-gradient(180deg, #ffffff, #f6fbff);
+      border: 1px solid rgba(229,231,235,.9);
+      box-shadow: var(--shadow);
+      padding: 30px 18px;
+    }
+    .cta-icon{
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      margin: 0 auto 14px;
+      border: 1px solid rgba(229,231,235,.9);
+      box-shadow: var(--shadow-soft);
+      background: #fff;
+      object-fit: contain;
+      padding: 8px;
+    }
+
+    /* Footer */
+    footer{
+      padding: 28px 0;
+      border-top: 1px solid rgba(229,231,235,.9);
+      background: #fff;
+    }
+    .footer-inner{
+      display:flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+      color: var(--muted-2);
+      font-size: 13px;
+    }
+    .footer-links{
+      display:flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .footer-links a{
+      color: var(--muted);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      nav{ display:none; } /* clean on smaller screens */
+      .header-cta{ min-width: auto; }
+      .grid, .grid.reverse{ grid-template-columns: 1fr; }
+      .three{ grid-template-columns: 1fr; }
+      .steps{ grid-template-columns: 1fr 1fr; }
+      .categories{ grid-template-columns: 1fr 1fr; }
+      section{ padding: 54px 0; }
+      .hero{ padding-top: 28px; }
+    }
+    @media (max-width: 560px){
+      .steps{ grid-template-columns: 1fr; }
+      .categories{ grid-template-columns: 1fr; }
+      .brand-name{ font-size: 14px; }
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <a href="index.html">← Back to Home</a>
-    <h1>Privacy Policy</h1>
-    <p>
-      This page is provided for compliance and user transparency. Please paste your complete BarterStore Privacy Policy text here.
-    </p>
-    <div class="box">
-      <p><strong>Tip:</strong> If you already have your policy hosted elsewhere (GitHub Pages / Google Docs), tell me and I’ll update the footer link accordingly.</p>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a class="brand" href="#top" aria-label="BarterStore Home">
+          <img src="assets/logo.png" alt="BarterStore Logo">
+          <div>
+            <div class="brand-name">BarterStore</div>
+            <div class="brand-tag">Local barter • buy • sell • donate</div>
+          </div>
+        </a>
+
+        <nav aria-label="Primary">
+          <a href="#story">Story</a>
+          <a href="#today">Modern Barter</a>
+          <a href="#impact">Impact</a>
+          <a href="#how">How it works</a>
+          <a href="#categories">Categories</a>
+          <a href="#assistant">BarterBot</a>
+          <a href="#trust">Trust</a>
+        </nav>
+
+        <div class="header-cta">
+          <a class="btn" href="#how">Learn</a>
+          <a class="btn btn-primary"
+             href="https://play.google.com/store/apps/details?id=com.barterstore.app"
+             target="_blank" rel="noopener">
+            Install App
+          </a>
+        </div>
+      </div>
     </div>
-    <p style="margin-top:18px;">
-      For support, contact: <a href="mailto:support@barterstore.in">support@barterstore.in</a>
-    </p>
-  </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="grid">
+          <div>
+            <div class="kicker">WELCOME TO BARTERSTORE</div>
+            <h1>Reviving a Timeless Way to Exchange Value</h1>
+            <p class="narrow">
+              BarterStore is a modern, location-based marketplace that brings together barter, buying, selling, and donating —
+              all within your city. Simple to use, community-driven, and designed for responsible exchange in today’s world.
+            </p>
+
+            <div class="actions">
+              <a class="btn btn-primary"
+                 href="https://play.google.com/store/apps/details?id=com.barterstore.app"
+                 target="_blank" rel="noopener">
+                Install on Google Play
+              </a>
+              <a class="btn" href="#how">How it Works</a>
+            </div>
+
+            <div class="trust-strip" aria-label="Highlights">
+              <span class="pill">Location-based discovery</span>
+              <span class="pill">Barter • Buy • Sell • Donate</span>
+              <span class="pill">Community-first</span>
+              <span class="pill">Responsible exchange</span>
+            </div>
+
+            <div class="mini-note">
+              Light, clean design • Built to feel premium, trustworthy, and welcoming.
+            </div>
+          </div>
+
+          <div class="media" aria-label="BarterStore banner">
+            <img src="assets/barterstore_banner.png" alt="BarterStore banner">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY: THEN -->
+    <section id="story" class="section-muted">
+      <div class="container">
+        <div class="grid reverse">
+          <div class="media">
+            <img src="assets/barter_system_then.png" alt="The barter system — then">
+          </div>
+          <div>
+            <div class="kicker">THE ORIGIN</div>
+            <h2>Before Money, There Was Barter</h2>
+            <p>
+              Long before digital payments, online marketplaces, or even currency itself, people exchanged value through barter.
+              Communities traded goods based on need — grains for tools, clothing for services — building trust and cooperation along the way.
+            </p>
+            <p>
+              Barter was not just a transaction. It was a way of life that encouraged reuse, fairness, and human connection.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY IT FADED -->
+    <section>
+      <div class="container">
+        <div class="narrow">
+          <div class="kicker">THE BRIDGE</div>
+          <h2>What Changed?</h2>
+          <p>
+            As societies grew larger and more complex, barter became difficult to manage. Finding the right exchange,
+            ensuring fairness, and building trust at scale were real challenges.
+          </p>
+          <p>
+            Money simplified trade — but it also distanced people from the value of reuse and sharing.
+            Over time, perfectly usable items began to be discarded rather than exchanged.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TODAY -->
+    <section id="today" class="section-muted">
+      <div class="container">
+        <div class="grid">
+          <div>
+            <div class="kicker">MODERN BARTER</div>
+            <h2>The Same Idea. Reimagined for Today.</h2>
+            <p>
+              Technology now makes it possible to bring barter back — efficiently and responsibly.
+              With location-based discovery, direct communication, and flexible exchange options,
+              BarterStore modernizes an age-old system for today’s digital world.
+            </p>
+            <p>
+              What was once complex is now simple. What was once limited is now local, fast, and accessible.
+            </p>
+          </div>
+          <div class="media">
+            <img src="assets/barter_system_today.png" alt="Modern barter — people exchanging using smartphones">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MORE THAN BARTER -->
+    <section id="impact">
+      <div class="container">
+        <div class="narrow">
+          <div class="kicker">MORE THAN BARTER</div>
+          <h2>Donate. Buy. Sell. Exchange Responsibly.</h2>
+          <p>
+            BarterStore is designed for real life. Not everything must be a strict barter match —
+            sometimes giving helps, sometimes buying is practical, and sometimes selling turns unused items into value.
+          </p>
+        </div>
+
+        <div class="three" style="margin-top:22px;">
+          <div class="mini-card">
+            <div class="kicker" style="margin-bottom:8px;">DONATE</div>
+            <h3>Give What You Don’t Need. Help Someone Who Does.</h3>
+            <p>
+              Many items still have value even when we no longer use them.
+              Donating helps others, reduces waste, and builds a culture of generosity within local communities.
+            </p>
+          </div>
+
+          <div class="mini-card">
+            <div class="kicker" style="margin-bottom:8px;">BUY & SELL</div>
+            <h3>Good Value Doesn’t Have to Be New.</h3>
+            <p>
+              Buying and selling used items saves money, extends product life, and reduces unnecessary manufacturing —
+              benefiting both people and the planet.
+            </p>
+          </div>
+
+          <div class="mini-card">
+            <div class="kicker" style="margin-bottom:8px;">COMMUNITY</div>
+            <h3>Local, Practical, and People-First.</h3>
+            <p>
+              Exchanges are most meaningful when they happen nearby.
+              BarterStore keeps discovery relevant to your city and supports responsible local interactions.
+            </p>
+          </div>
+        </div>
+
+        <!-- Donation image (used once) -->
+        <div class="grid reverse" style="margin-top:26px;">
+          <div class="media">
+            <img src="assets/donation.png" alt="Donation — warm local exchange">
+          </div>
+          <div>
+            <div class="kicker">DONATE</div>
+            <h2>Small Acts Create Big Impact</h2>
+            <p>
+              Donating usable items is one of the simplest ways to support sustainability.
+              It keeps good items in circulation and helps people who can truly benefit from them.
+            </p>
+            <p>
+              With BarterStore, donating becomes part of everyday community life — simple, respectful, and local.
+            </p>
+          </div>
+        </div>
+
+        <!-- Buy/Sell image (used once) -->
+        <div class="grid" style="margin-top:26px;">
+          <div>
+            <div class="kicker">BUY & SELL</div>
+            <h2>Practical Choices, Better Value</h2>
+            <p>
+              Used doesn’t mean low-quality. A well-maintained item can serve for years.
+              Buying used is smart and affordable — selling helps you declutter and recover value.
+            </p>
+            <p>
+              BarterStore supports fair exchange so useful items aren’t wasted.
+            </p>
+          </div>
+          <div class="media">
+            <img src="assets/buy_sell.png" alt="Buy & Sell — clean and well-maintained used items">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUSTAINABILITY -->
+    <section class="section-muted">
+      <div class="container">
+        <div class="grid reverse">
+          <div class="media">
+            <img src="assets/sustainability.png" alt="Sustainability — reuse, reduce waste, circular economy">
+          </div>
+          <div>
+            <div class="kicker">SUSTAINABILITY</div>
+            <h2>Reuse More. Waste Less.</h2>
+            <p>
+              Every reused item means less waste in landfills and a lower environmental impact.
+              BarterStore supports a circular economy — where items are valued, reused, and exchanged responsibly
+              instead of being discarded.
+            </p>
+            <p>
+              Small actions, repeated across communities, create meaningful change.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how">
+      <div class="container">
+        <div class="narrow">
+          <div class="kicker">HOW IT WORKS</div>
+          <h2>Simple Steps. Clear Outcomes.</h2>
+          <p>
+            BarterStore is designed to be easy for everyone — browse locally, post quickly, and exchange responsibly.
+          </p>
+        </div>
+
+        <div class="steps" aria-label="How BarterStore works steps">
+          <div class="step">
+            <div class="num">1</div>
+            <h3>Choose your city & area</h3>
+            <p>See what’s relevant nearby and keep discovery local.</p>
+          </div>
+          <div class="step">
+            <div class="num">2</div>
+            <h3>Browse or post items</h3>
+            <p>List what you have, or explore what others offer.</p>
+          </div>
+          <div class="step">
+            <div class="num">3</div>
+            <h3>Barter, buy, sell, or donate</h3>
+            <p>Pick the option that best fits your need.</p>
+          </div>
+          <div class="step">
+            <div class="num">4</div>
+            <h3>Chat and complete exchange</h3>
+            <p>Communicate clearly and close the deal confidently.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section id="categories" class="section-muted">
+      <div class="container">
+        <div class="narrow">
+          <div class="kicker">CATEGORIES</div>
+          <h2>Everyday Items, Local Opportunities</h2>
+          <p>
+            Explore a wide range of items people exchange in daily life — practical, useful, and local.
+          </p>
+        </div>
+
+        <div class="categories" aria-label="Category list">
+          <div class="cat">Books</div>
+          <div class="cat">Electronics</div>
+          <div class="cat">Furniture</div>
+          <div class="cat">Vehicles</div>
+          <div class="cat">Sports Equipment</div>
+          <div class="cat">Toys</div>
+          <div class="cat">Appliances</div>
+          <div class="cat">More Essentials</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BARTERBOT -->
+    <section id="assistant">
+      <div class="container">
+        <div class="grid">
+          <div>
+            <div class="kicker">ASSISTANT</div>
+            <h2>Meet BarterBot</h2>
+            <p>
+              BarterBot is your friendly in-app guide — helping you explore BarterStore with ease and making your experience
+              smoother and more intuitive.
+            </p>
+            <p>
+              Helpful, friendly, and designed to assist — without getting in the way.
+            </p>
+          </div>
+          <div class="media">
+            <img src="assets/barterbot_assistant.png" alt="BarterBot assistant">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST -->
+    <section id="trust" class="section-muted">
+      <div class="container">
+        <div class="narrow">
+          <div class="kicker">TRUST</div>
+          <h2>Safety, Respect, and Community</h2>
+          <p>
+            BarterStore promotes respectful interactions and responsible listings. Users can report concerns, block misuse,
+            and engage confidently within their local marketplace.
+          </p>
+          <p>
+            A safer experience starts with a responsible community.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="cta">
+      <div class="container">
+        <div class="cta-box">
+          <img class="cta-icon" src="assets/icon.png" alt="BarterStore App Icon">
+          <div class="kicker">READY TO BEGIN?</div>
+          <h2>Start Exchanging Smarter Today</h2>
+          <p class="narrow" style="margin: 0 auto 18px;">
+            Discover a better way to reuse, exchange, and connect — right in your city.
+          </p>
+          <a class="btn btn-primary"
+             href="https://play.google.com/store/apps/details?id=com.barterstore.app"
+             target="_blank" rel="noopener">
+            Install BarterStore on Google Play
+          </a>
+          <div class="mini-note">If the Play Store link doesn’t open, please try again later.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>© <span id="year"></span> BarterStore. All rights reserved.</div>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="mailto:support@barterstore.in">Contact Support</a>
+          <a href="#top">Back to top</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
