@@ -158,7 +158,11 @@
       cursor: pointer;
       white-space: nowrap;
     }
-    .btn:hover{ background: #ffffff; box-shadow: var(--shadow-soft); }
+/* ✅ Hover only for normal buttons (NOT Play Store) */
+.btn:not(.btn-primary):hover{
+  background: #ffffff;
+  box-shadow: var(--shadow-soft);
+}
     .btn:active{ transform: translateY(1px); }
 
     .btn-primary{
