@@ -1,36 +1,301 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Privacy Policy – BarterStore</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — BarterStore</title>
+  <meta name="description" content="BarterStore Privacy Policy and Account/Data Deletion information." />
+
+  <style>
+    :root{
+      --bg: #f6f7fb;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: rgba(15, 23, 42, 0.76);
+      --footer: rgba(15, 23, 42, 0.64);
+      --border: rgba(15, 23, 42, 0.10);
+      --divider: rgba(15, 23, 42, 0.18);
+
+      /* clean premium accent */
+      --accent: #2563eb;
+      --accentSoft: rgba(37, 99, 235, 0.08);
+      --shadow: 0 14px 30px rgba(2, 6, 23, 0.08);
+      --radius: 16px;
+    }
+
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg: #0b1220;
+        --card: #0f172a;
+        --text: #e5e7eb;
+        --muted: rgba(229,231,235,0.76);
+        --footer: rgba(229,231,235,0.70);
+        --border: rgba(229,231,235,0.10);
+        --divider: rgba(229,231,235,0.18);
+
+        /* neon feel in dark */
+        --accent: #00F5FF;
+        --accentSoft: rgba(0, 245, 255, 0.10);
+        --shadow: 0 14px 34px rgba(0,0,0,0.28);
+      }
+    }
+
+    *{ box-sizing: border-box; }
+    body{
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    /* Top bar like AppBar */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    @media (prefers-color-scheme: dark){
+      .topbar{ background: rgba(15,23,42,0.75); }
+    }
+
+    .topbar-inner{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .back{
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      opacity: 0.9;
+    }
+    .back:hover{ opacity: 1; }
+
+    .title{
+      font-size: 18px;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 18px 16px 28px;
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px;
+    }
+
+    .badge{
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accentSoft);
+      border: 1px solid rgba(37, 99, 235, 0.35);
+      color: var(--accent);
+      font-size: 16px;
+      font-weight: 800;
+    }
+    @media (prefers-color-scheme: dark){
+      .badge{ border-color: rgba(0,245,255,0.55); }
+    }
+
+    .meta{
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    h2{
+      margin: 16px 0 6px;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    p, li{
+      color: var(--muted);
+    }
+
+    ul{
+      margin: 8px 0 0;
+      padding-left: 18px;
+    }
+
+    .divider{
+      margin: 18px 0 10px;
+      border: 0;
+      border-top: 1px solid var(--divider);
+    }
+
+    .callout{
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(37,99,235,0.05);
+      color: var(--muted);
+    }
+    @media (prefers-color-scheme: dark){
+      .callout{ background: rgba(0,245,255,0.06); }
+    }
+
+    a{
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    a:hover{ text-decoration: underline; }
+
+    .footer{
+      text-align: center;
+      font-size: 12px;
+      color: var(--footer);
+      white-space: pre-line;
+    }
+
+    .section-gap{ height: 6px; }
+  </style>
 </head>
-<body style="font-family: Arial, sans-serif; padding: 30px;">
 
-<h1>Privacy Policy</h1>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a class="back" href="index.html">← Back</a>
+      <h1 class="title">Privacy Policy</h1>
+    </div>
+  </div>
 
-<p>BarterStore respects your privacy. This Privacy Policy explains how we collect, use, and protect your information.</p>
+  <main class="wrap">
+    <section class="card">
+      <div class="badge">BarterStore Privacy Policy</div>
+      <div class="meta"><strong>Effective Date:</strong> 23 January 2026</div>
 
-<h3>Information We Collect</h3>
-<ul>
-  <li>Basic account details (such as name or phone number)</li>
-  <li>Location information (city and area)</li>
-  <li>Posts and content you create</li>
-</ul>
+      <p class="section-gap"></p>
+      <p>
+        BarterStore (“we”, “our”, “us”) respects your privacy and is committed to protecting it.
+        This Privacy Policy explains how information is collected, used, and shared when you use
+        the BarterStore mobile application.
+      </p>
 
-<h3>How We Use Information</h3>
-<ul>
-  <li>To provide and improve the BarterStore app</li>
-  <li>To show relevant local listings</li>
-  <li>For security and fraud prevention</li>
-</ul>
+      <h2>1. Information We Collect</h2>
+      <ul>
+        <li>Email address for authentication</li>
+        <li>User-generated content (posts, images, descriptions)</li>
+        <li>City/location (manual or auto-detected if permission is granted)</li>
+        <li>Device and usage data for analytics and crash reporting</li>
+      </ul>
 
-<h3>Third-Party Services</h3>
-<p>BarterStore may use services such as Firebase and Google AdMob.</p>
+      <h2>2. How We Use Information</h2>
+      <ul>
+        <li>To provide marketplace features</li>
+        <li>To show nearby listings</li>
+        <li>To improve app performance</li>
+        <li>To display advertisements</li>
+      </ul>
 
-<h3>Contact</h3>
-<p>If you have questions, contact us at: <b>support@barterstore.in</b></p>
+      <h2>3. Ads &amp; Third-Party Services</h2>
+      <p>BarterStore uses:</p>
+      <ul>
+        <li>Google AdMob</li>
+        <li>Firebase Authentication</li>
+        <li>Firebase Firestore &amp; Storage</li>
+        <li>Firebase Analytics</li>
+      </ul>
 
-<p><a href="/">← Back to Home</a></p>
+      <div class="callout">
+        Google Privacy Policy:
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+          https://policies.google.com/privacy
+        </a>
+      </div>
 
+      <h2>4. Data Sharing</h2>
+      <p>
+        We do not sell or rent user data. Data is shared only to provide app functionality
+        or comply with legal obligations.
+      </p>
+
+      <h2>5. Data Security</h2>
+      <p>
+        We use industry-standard security practices, but no system is completely secure.
+      </p>
+
+      <h2>6. User Rights</h2>
+      <p>
+        Users can edit or delete posts, control app permissions, or request account deletion.
+      </p>
+
+      <h2>7. Children’s Privacy</h2>
+      <p>
+        BarterStore is intended for users 13 years and above.
+      </p>
+
+      <h2>8. Policy Updates</h2>
+      <p>
+        This policy may be updated from time to time.
+      </p>
+
+      <h2>9. Contact Us</h2>
+      <p>
+        Email: <a href="mailto:support@barterstore.in">support@barterstore.in</a>
+      </p>
+
+      <hr class="divider" />
+
+      <h2>Account and Data Deletion</h2>
+      <p>
+        BarterStore respects user privacy and provides a clear process for account and data deletion.
+      </p>
+
+      <h2>How to request account deletion</h2>
+      <p>
+        Users can request deletion of their BarterStore account and associated data by emailing us at:
+      </p>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:support@barterstore.in">support@barterstore.in</a></li>
+        <li><strong>Subject:</strong> Account Deletion Request – BarterStore</li>
+      </ul>
+
+      <h2>Data that will be deleted</h2>
+      <p>Upon verification, the following data will be permanently deleted:</p>
+      <ul>
+        <li>User account details (email, phone number, profile)</li>
+        <li>Posts and listings created by the user</li>
+        <li>Chat messages and conversations</li>
+        <li>Uploaded images and related content</li>
+      </ul>
+
+      <h2>Data retention period</h2>
+      <p>
+        Data will be deleted within <strong>7–30 days</strong> of request, unless retention is required by law.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        For questions related to data deletion, contact:
+        <a href="mailto:support@barterstore.in">support@barterstore.in</a>
+      </p>
+
+      <hr class="divider" />
+
+      <div class="footer">
+        © 2026 BarterStore™. All rights reserved.
+      </div>
+    </section>
+  </main>
 </body>
 </html>
