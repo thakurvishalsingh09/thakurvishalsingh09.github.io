@@ -1,32 +1,232 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Terms & Conditions – BarterStore</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Legal Terms & Conditions — BarterStore</title>
+  <meta name="description" content="BarterStore Legal Terms & Conditions" />
+
+  <style>
+    :root{
+      --bg: #f6f7fb;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: rgba(15, 23, 42, 0.76);
+      --footer: rgba(15, 23, 42, 0.64);
+      --border: rgba(15, 23, 42, 0.10);
+      --divider: rgba(15, 23, 42, 0.18);
+
+      /* Neon-like accent (clean, premium) */
+      --accent: #2563eb; /* blue */
+      --accentSoft: rgba(37, 99, 235, 0.08);
+      --shadow: 0 14px 30px rgba(2, 6, 23, 0.08);
+      --radius: 16px;
+    }
+
+    /* If user device is dark mode, still keep a nice readable version */
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg: #0b1220;
+        --card: #0f172a;
+        --text: #e5e7eb;
+        --muted: rgba(229,231,235,0.76);
+        --footer: rgba(229,231,235,0.70);
+        --border: rgba(229,231,235,0.10);
+        --divider: rgba(229,231,235,0.18);
+
+        --accent: #00F5FF; /* neon */
+        --accentSoft: rgba(0, 245, 255, 0.10);
+        --shadow: 0 14px 34px rgba(0,0,0,0.28);
+      }
+    }
+
+    *{ box-sizing: border-box; }
+    body{
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    /* Top bar like AppBar */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    @media (prefers-color-scheme: dark){
+      .topbar{ background: rgba(15,23,42,0.75); }
+    }
+
+    .topbar-inner{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .back{
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      opacity: 0.9;
+    }
+    .back:hover{ opacity: 1; }
+
+    .title{
+      font-size: 18px;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 18px 16px 28px;
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px;
+    }
+
+    .badge{
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accentSoft);
+      border: 1px solid rgba(37, 99, 235, 0.35);
+      color: var(--accent);
+      font-size: 16px;
+      font-weight: 800;
+    }
+    @media (prefers-color-scheme: dark){
+      .badge{ border-color: rgba(0,245,255,0.55); }
+    }
+
+    .intro{
+      margin-top: 14px;
+      color: var(--muted);
+    }
+
+    h2{
+      margin: 16px 0 6px;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    p{
+      margin: 0 0 2px;
+      color: var(--muted);
+      white-space: pre-line; /* preserves \n and bullet lines like in JSON */
+    }
+
+    .divider{
+      margin: 18px 0 10px;
+      border: 0;
+      border-top: 1px solid var(--divider);
+    }
+
+    .footer{
+      text-align: center;
+      font-size: 12px;
+      color: var(--footer);
+      white-space: pre-line;
+    }
+  </style>
 </head>
-<body style="font-family: Arial, sans-serif; padding: 30px;">
 
-<h1>Terms & Conditions</h1>
+<body>
+  <!-- Simple topbar like your AppBar -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a class="back" href="index.html">← Back</a>
+      <h1 class="title">Legal Terms &amp; Conditions</h1>
+    </div>
+  </div>
 
-<p>By using the BarterStore app or website, you agree to the following terms.</p>
+  <main class="wrap">
+    <section class="card">
+      <div class="badge">BarterStore Terms &amp; Conditions</div>
 
-<h3>Use of Platform</h3>
-<ul>
-  <li>You are responsible for the content you post.</li>
-  <li>Illegal or prohibited items are not allowed.</li>
-  <li>You must provide accurate information.</li>
-</ul>
+      <p class="intro">
+        Welcome to BarterStore! By using our app, you agree to comply with and be bound by the following terms and conditions. Please read these terms carefully before using the BarterStore platform.
+      </p>
 
-<h3>User Responsibility</h3>
-<p>BarterStore is a platform to connect users. We are not responsible for transactions between users.</p>
+      <h2>1. General Use</h2>
+      <p>BarterStore is an online platform that allows users to barter, donate, buy, and sell idle goods and services. Users must be at least 18 years old or have parental supervision to use this app responsibly.</p>
 
-<h3>Account Termination</h3>
-<p>BarterStore may suspend or terminate accounts that violate these terms.</p>
+      <h2>2. Account Responsibility</h2>
+      <p>Users are responsible for maintaining the confidentiality of their account credentials. BarterStore is not liable for any loss or damage resulting from unauthorized account access.</p>
 
-<h3>Changes to Terms</h3>
-<p>We may update these terms at any time. Continued use means acceptance of updated terms.</p>
+      <h2>3. Content and Listings</h2>
+      <p>Users are solely responsible for the content they post, including images, descriptions, and pricing. Illegal, inappropriate, or misleading listings are not allowed and will be removed without notice.</p>
 
-<p><a href="/">← Back to Home</a></p>
+      <h2>4. Prohibited Items</h2>
+      <p>The following items are strictly prohibited from being listed on BarterStore:
+- Weapons or ammunition
+- Drugs or illegal substances
+- Counterfeit goods
+- Adult or explicit material
+- Stolen property
+- Hazardous materials</p>
 
+      <h2>5. Transactions and Safety</h2>
+      <p>All transactions between users are conducted at their own risk. BarterStore does not guarantee the quality, safety, or legality of items listed or traded. Always meet in public places and verify items before exchange.</p>
+
+      <h2>6. Privacy</h2>
+      <p>User data is collected only for improving app functionality and user experience. We do not sell or misuse user data. Please refer to our Privacy Policy for details.</p>
+
+      <h2>7. Termination of Use</h2>
+      <p>BarterStore reserves the right to suspend or terminate accounts that violate these terms or engage in fraudulent activity.</p>
+
+      <h2>8. Limitation of Liability</h2>
+      <p>BarterStore and its team shall not be held liable for any damages, losses, or disputes arising from user interactions, trades, or transactions.</p>
+
+      <h2>9. Changes to Terms</h2>
+      <p>We may modify or update these Terms &amp; Conditions at any time. Users are encouraged to review this page periodically for updates.</p>
+
+      <h2>10. Role of BarterStore as an Intermediary</h2>
+      <p>BarterStore is a technology platform that enables users to connect and interact with each other. We do not own, control, or endorse any of the items, services, or offers posted by users. BarterStore is not a party to any agreement, transaction, or exchange between users and does not provide escrow, payment guarantees, or delivery services. All communications, negotiations, and deals are purely between users.</p>
+
+      <h2>11. User Obligations and Legal Compliance</h2>
+      <p>Users are solely responsible for ensuring that their activities on BarterStore comply with all applicable local, state, national, and international laws and regulations. This includes, but is not limited to, taxation, licensing, consumer protection, and e-commerce rules. BarterStore is not responsible for any legal obligations, penalties, or disputes arising due to a user’s non-compliance with the laws &amp; regulations.</p>
+
+      <h2>12. Personal Information, Contact Sharing and Payments</h2>
+      <p>Any personal information (such as phone numbers, addresses, payment details, or social media IDs) that users choose to share with each other is done at their own risk. BarterStore strongly recommends that users exercise caution while sharing personal or financial details. BarterStore is not responsible for any misuse of information, offline meetings, payments made outside the app, or any resulting loss or harm.</p>
+
+      <h2>13. User-Generated Content and Intellectual Property</h2>
+      <p>All content posted by users (including text, images, and other media) remains the responsibility of the user who posted it. By posting on BarterStore, users grant BarterStore a non-exclusive, worldwide, royalty-free license to use, display, and distribute such content within the app for the purpose of operating and promoting the platform. Users must ensure that the content they upload does not infringe any third-party rights, including copyrights, trademarks, or privacy rights. All BarterStore logos, designs, branding, and app assets remain the exclusive &amp; sole property of BarterStore and may not be copied, modified, or reused without written permission.</p>
+
+      <h2>14. Indemnity</h2>
+      <p>By using BarterStore, you agree to indemnify and hold harmless BarterStore, its owners, team members, and partners from any claims, demands, losses, liabilities, damages, or expenses (including legal fees) arising out of or related to: (a) your use of the app, (b) your violation of these terms, or (c) your violation of any rights of another user or third party.</p>
+
+      <h2>15. No Warranty and App Availability</h2>
+      <p>BarterStore is provided on an "as is" and "as available" basis. We do not make any warranties or representations, express or implied, regarding the accuracy, reliability, or availability of the app or its content. We may perform maintenance, updates, or changes that may temporarily affect access to the app. We do not guarantee uninterrupted service, error-free operation, or protection from all possible security risks.</p>
+
+      <h2>16. Governing Law and Jurisdiction</h2>
+      <p>These Terms &amp; Conditions shall be governed by and interpreted in accordance with the laws of India. Any disputes arising out of or in connection with the use of BarterStore shall be subject to the exclusive jurisdiction of the courts located in India, as specified by the app owner or company jurisdiction.</p>
+
+      <h2>17. Legal Disclaimer</h2>
+      <p>The information and policies provided in this BarterStore app are for general guidance to help users understand the rules and regulations related to using BarterStore app. They do not constitute professional legal advice. For any specific legal concerns related to your use of BarterStore app, your business, or your transactions, you should consult a qualified legal professional.</p>
+
+      <hr class="divider" />
+
+      <div class="footer">
+        Last updated on: October 2025
+        © 2025 BarterStore™. All rights reserved.
+      </div>
+    </section>
+  </main>
 </body>
 </html>
