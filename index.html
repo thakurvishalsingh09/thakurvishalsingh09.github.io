@@ -10,6 +10,28 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+  /* ✅ Clean strip below hero to remove clutter on left side */
+.hero-strip{
+  padding: 18px 0 38px;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(229,231,235,.75);
+}
+
+.hero-strip .pill-row{
+  margin-top: 0;
+  justify-content: center;
+}
+
+.hero-strip .stats{
+  margin-top: 14px;
+}
+
+@media (max-width: 980px){
+  .hero-strip{
+    padding: 14px 0 28px;
+  }
+}
+
   <style>
     :root{
       --bg: #ffffff;
@@ -707,83 +729,91 @@
   <main id="top">
 
     <section class="hero">
-      <div class="container">
-        <div class="grid">
-          <div>
-            <div class="kicker">WELCOME TO BARTERSTORE</div>
-            <h1>Exchange Smarter & Donate Wiser</h1>
-            <p>
-              BarterStore is a modern, location-based marketplace where you can
-              <strong>exchange</strong>, <strong>donate</strong>, <strong>buy</strong>, and <strong>sell</strong> idle items locally — in a faster, safer, and more practical way.
-            </p>
+  <div class="container">
+    <div class="grid">
+      <div>
+        <div class="kicker">WELCOME TO BARTERSTORE</div>
 
-            <div class="actions">
-              <a class="btn btn-primary"
-                 href="https://play.google.com/store/apps/details?id=com.barterstore.app"
-                 target="_blank" rel="noopener">
-                <img class="btn-icon" src="assets/icon.png" alt="">
-                Install on Google Play
-              </a>
-              <a class="btn" href="#features">Explore Features</a>
-            </div>
+        <h1>Exchange Smarter & Donate Wiser</h1>
 
-            <div class="pill-row" aria-label="Highlights">
-              <span class="pill">Local discovery</span>
-              <span class="pill">Exchange • Donate • Buy • Sell</span>
-              <span class="pill">Clean & trusted listings</span>
-              <span class="pill">Sustainability-friendly</span>
-            </div>
+        <p style="max-width: 54ch;">
+          Exchange, donate, buy, and sell idle items locally — in a faster, safer, and practical way.
+        </p>
 
-            <!-- ✅ Premium attractive top strip -->
-            <div class="stats" aria-label="Key benefits">
-              <div class="stat">
-                <div class="stat-ico" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                    <path d="M12 21s7-4.5 7-11a7 7 0 0 0-14 0c0 6.5 7 11 7 11z"></path>
-                    <circle cx="12" cy="10" r="2"></circle>
-                  </svg>
-                </div>
-                <div>
-                  <b>Local marketplace</b>
-                  <span>See what matters in your city</span>
-                </div>
-              </div>
-              <div class="stat">
-                <div class="stat-ico" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                    <path d="M20 7h-9"></path><path d="M14 17H4"></path><path d="M20 17h-3"></path><path d="M7 7H4"></path>
-                    <circle cx="9" cy="7" r="2"></circle><circle cx="15" cy="17" r="2"></circle>
-                  </svg>
-                </div>
-                <div>
-                  <b>Flexible options</b>
-                  <span>Exchange, donate, buy or sell</span>
-                </div>
-              </div>
-              <div class="stat">
-                <div class="stat-ico" aria-hidden="true" style="background:linear-gradient(135deg, rgba(34,197,94,.16), rgba(14,165,233,.10)); border-color: rgba(34,197,94,.18);">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                    <path d="M12 2c4 3 6 6 10a6 6 0 0 1-12 0c0-4 2-7 6-10z"></path>
-                  </svg>
-                </div>
-                <div>
-                  <b>Eco impact</b>
-                  <span>Reuse more, waste less</span>
-                </div>
-              </div>
-            </div>
+        <div class="actions">
+          <a class="btn btn-primary"
+             href="https://play.google.com/store/apps/details?id=com.barterstore.app"
+             target="_blank" rel="noopener">
+            <img class="btn-icon" src="assets/icon.png" alt="">
+            Install on Google Play
+          </a>
+          <a class="btn" href="#exchange">Explore</a>
+        </div>
 
-            <div class="mini-note">
-              Premium, clean design • built to be simple and exciting to use.
-            </div>
-          </div>
-
-          <div class="media" aria-label="BarterStore banner">
-            <img src="assets/barterstore_banner.png" alt="BarterStore banner">
-          </div>
+        <div class="mini-note" style="margin-top:12px;">
+          Premium, clean design • built to be simple and exciting to use.
         </div>
       </div>
-    </section>
+
+      <div class="media" aria-label="BarterStore banner">
+        <img src="assets/barterstore_banner.png" alt="BarterStore banner">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ✅ moved “pills + stats” into a clean strip below -->
+<section class="hero-strip">
+  <div class="container">
+    <div class="pill-row" aria-label="Highlights">
+      <span class="pill">Local discovery</span>
+      <span class="pill">Exchange • Donate • Buy • Sell</span>
+      <span class="pill">Clean & trusted listings</span>
+      <span class="pill">Sustainability-friendly</span>
+    </div>
+
+    <div class="stats" aria-label="Key benefits">
+      <div class="stat">
+        <div class="stat-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M12 21s7-4.5 7-11a7 7 0 0 0-14 0c0 6.5 7 11 7 11z"></path>
+            <circle cx="12" cy="10" r="2"></circle>
+          </svg>
+        </div>
+        <div>
+          <b>Local marketplace</b>
+          <span>See what matters in your city</span>
+        </div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M20 7h-9"></path><path d="M14 17H4"></path><path d="M20 17h-3"></path><path d="M7 7H4"></path>
+            <circle cx="9" cy="7" r="2"></circle><circle cx="15" cy="17" r="2"></circle>
+          </svg>
+        </div>
+        <div>
+          <b>Flexible options</b>
+          <span>Exchange, donate, buy or sell</span>
+        </div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-ico" aria-hidden="true" style="background:linear-gradient(135deg, rgba(34,197,94,.16), rgba(14,165,233,.10)); border-color: rgba(34,197,94,.18);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M12 2c4 3 6 6 6 10a6 6 0 0 1-12 0c0-4 2-7 6-10z"></path>
+          </svg>
+        </div>
+        <div>
+          <b>Eco impact</b>
+          <span>Reuse more, waste less</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <section id="exchange" class="section-muted">
       <div class="container">
