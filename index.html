@@ -653,6 +653,61 @@
     padding: 14px 0 28px;
   }
 }
+/* ✅ FIX: prevent header overlap on small phones */
+@media (max-width: 640px){
+
+  .header-inner{
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  .brand{
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .brand img{
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    padding: 5px;
+  }
+
+  .brand-name{
+    font-size: 17px;
+  }
+
+  .brand-tag{
+    font-size: 12px;
+  }
+
+  .header-cta{
+    width: 100%;
+    min-width: 0;              /* ✅ override min-width:200px */
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* keep hamburger + buttons from squeezing/overlapping */
+  .header-cta .menu-btn{
+    flex: 0 0 auto;
+  }
+
+  .header-cta .btn{
+    flex: 1 1 160px;           /* ✅ allows wrap into next line if needed */
+    white-space: nowrap;       /* keep text single-line, but now can wrap as a block */
+    padding: 11px 14px;
+  }
+
+  /* sticky offset should be a bit larger because header can become 2 lines */
+  :root{
+    --header-offset: 126px;
+  }
+}
 
   </style>
 </head>
